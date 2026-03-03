@@ -1,0 +1,103 @@
+@use "../utils/_mixins" as mh;
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    position: relative;
+    background: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    z-index: 2;
+    width: 500px;
+  }
+
+  &__close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    color: #000;
+    font-size: 24px;
+    font-weight: 800;
+     &:hover{
+    box-shadow: none;
+  }
+  }
+
+  h3 {
+    font-size: 24px;
+    line-height: 1.25;
+    text-align: center;
+    color: var(--colorTitle);
+    font-weight: 600;
+    padding-bottom: 15px;
+  }
+
+  p {
+    line-height: 1.1;
+    text-align: center;
+  }
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 20px;
+  gap: 15px;
+}
+
+input {
+  border-bottom: 1px solid var(--colorText);
+  line-height: 2;
+  background-color: cornsilk;
+  padding: 2px;
+  text-align: center;
+  outline: none; //убираем внешние границы, когда курсор внутри инпута
+
+  &:focus::placeholder {
+    color: transparent;
+  } //убираем текст при фокусорвке в инпуте
+}
+
+textarea {
+  height: 100px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  outline: none; //убираем внешние границы, когда курсор внутри инпута
+
+  &:focus::placeholder {
+    color: transparent;
+  } //убираем текст при фокусорвке в инпуте
+}
+
+button[sendBtn] {
+  background: var(--colorBtn);
+  color: rgb(245, 243, 238);
+  padding: 10px 15px;
+  border-radius: 3px;
+  width: 50%;
+  align-self: center;
+
+  &:hover{
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.5);
+  }
+}

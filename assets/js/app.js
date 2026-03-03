@@ -74,4 +74,26 @@ document.addEventListener("DOMContentLoaded", () => {
     submenuToggle.setAttribute("aria-expanded", !isOpen);
     submenu.hidden = isOpen;
   });
+
+  //модальное окно для связи из header
+  const openBtn = document.querySelector(".header__btn");
+  const modal = document.getElementById("contact-modal");
+  const closeBtn = modal.querySelector(".modal__close");
+  const overlay = modal.querySelector(".modal__overlay");
+
+  function openModal() {
+    modal.style.display = "flex";
+  }
+
+  function closeModal() {
+    modal.style.display = "none";
+  }
+
+  openBtn.addEventListener("click", openModal);
+  closeBtn.addEventListener("click", closeModal);
+  overlay.addEventListener("click", closeModal);
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeModal();
+  });
 });

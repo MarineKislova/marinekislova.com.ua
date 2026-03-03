@@ -112,10 +112,10 @@
       <!-- ЯЗЫКИ -->
       <ul class="header__lang-panel">
         <li class="header__lang-item active-lang">
-          <a href="/en/" hreflang="en" lang="en">EN</a>
+          <a href="/ua/" hreflang="uk" lang="uk">UA</a>
         </li>
         <li class="header__lang-item">
-          <a href="/ua/" hreflang="uk" lang="uk">UA</a>
+          <a href="/en/" hreflang="en" lang="en">EN</a>
         </li>
         <li class="header__lang-item">
           <a href="/ru/" hreflang="ru" lang="ru">RU</a>
@@ -123,7 +123,7 @@
       </ul>
 
       <!-- КНОПКИ СВЯЗИ -->
-      <button class="header__btn">Связаться</button>
+      <button class="header__btn" aria-controls="contact-modal" aria-expanded="false">Связаться</button>
       <div class="header__contact-links">
         <a href="tel:+380955221952" class="header__contact-link">
           <svg width="20" height="20" viewBox="0 0 24 24">
@@ -158,3 +158,26 @@
     </div>
   </div>
 </header>
+
+<!-- МОДАЛЬНОЕ ОКНО -->
+<div class="modal" id="contact-modal">
+  <div class="modal__overlay"></div>
+
+  <div class="modal__content">
+    <button class="modal__close" aria-label="Закрыть">&times;</button>
+
+    <h3>Ваши контактные данные для связи</h3>
+    <p>Если возник вопрос или вы хотите оставить отзыв</p>
+
+    <form>
+      <input type="text" placeholder="Ваше имя/Название компании" required />
+      <input type="tel" placeholder="Телефон" required />
+      <input type="email" placeholder="e-mail" />
+      <textarea name="message" placeholder="Сообщение" required></textarea>
+
+      <input type="text" name="honey" style="display: none" tabindex="-1" autocomplete="off" />
+      <button id="sendBtn" type="submit">Отправить</button>
+      <div id="status-message"></div>
+    </form>
+  </div>
+</div>
