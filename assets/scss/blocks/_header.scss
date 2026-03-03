@@ -1,0 +1,325 @@
+@use "../utils/_mixins" as mh;
+
+.header {
+  @include mh.adaptiv-value("padding", 10, 5, 0);
+  // padding: 10px;
+  border-bottom: 1px solid rgba(103, 103, 103, 0.5);
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+
+    @media (max-width: 1285px) {
+      @include mh.adaptiv-value("padding-left", 10, 5, 0);
+      // padding-left: 10px;
+      @include mh.adaptiv-value("padding-right", 10, 5, 0);
+      // padding-right: 10px;
+    }
+
+    @media (max-width: 375px) {
+      flex-wrap: wrap;
+      gap: 15px;
+      padding: 10px;
+      height: max-content;
+    }
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    line-height: 1;
+    @include mh.adaptiv-value("font-size", 24, 20, 0);
+    // font-size: 24px;
+    font-weight: 800;
+    font-family: "Playfair Display";
+    span {
+      color: var(--colorPrimary);
+      &:nth-child(1n) {
+        color: var(--colorSecondary);
+      }
+    }
+  }
+
+  &__actions {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+  }
+
+  &__lang-panel {
+    display: flex;
+    gap: 5px;
+  }
+
+  &__lang-item {
+    border-right: solid 2px var(--colorPrimary);
+    padding-right: 5px;
+    font-weight: 500;
+    @include mh.adaptiv-value("font-size", 16, 12, 0);
+
+    &:nth-child(3) {
+      border-right: none;
+    }
+
+    &.active-lang {
+      color: var(--colorPrimary);
+      font-weight: 600;
+    }
+  }
+
+  &__btn {
+    padding: 10px 15px;
+    background-color: var(--colorBtn);
+    font-weight: 500;
+    color: #ffffff;
+    border-radius: 5px;
+
+    &:hover {
+      background-color: var(--colorBtnHover);
+      box-shadow: 1px 2px 3px rgb(94, 92, 92);
+    }
+
+    @media (max-width: 500px) {
+      display: none;
+    }
+  }
+
+  &__contact-links {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+    color: var(--colorPrimary);
+    transition: 0.3s;
+
+    @media (min-width: 500px) {
+      display: none;
+    }
+  }
+
+  &__contact-link {
+    &:hover {
+      transform: translateY(-2px);
+      opacity: 0.8;
+    }
+  }
+}
+.logo {
+  display: flex;
+  align-items: center;
+  line-height: 1;
+}
+.nav {
+  display: flex;
+  align-items: center;
+  align-self: center;
+}
+.menu {
+  display: flex;
+  max-width: 1000px;
+  gap: 30px;
+  align-items: center;
+}
+.menu-item {
+  position: relative;
+  display: inline-block;
+  padding: 2px;
+  font-weight: 500;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0; /* Изначально ширина 0 */
+    height: 2px; /* Ваша толщина границы */
+    background-color: var(--colorPrimary); /* Ваш цвет */
+    transition: width 0.3s ease-out; /* Анимация ширины */
+  }
+
+  &:hover::after {
+    width: 100%;
+    font-weight: 600;
+  }
+
+  &.active-link {
+    font-weight: 600;
+  }
+}
+.menu-item-has-children {
+  font-weight: 500;
+
+  &.active-link {
+    font-weight: 600;
+  }
+}
+.menu-link {
+  font-weight: 500;
+}
+.mega-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+
+  max-width: 900px;
+  padding: 30px;
+
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.25s ease;
+
+  z-index: 1000;
+
+  &:not([hidden]) {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.mega-column {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  gap: 30px;
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    line-height: 1.25;
+  }
+
+  a {
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: var(--colorSecondary);
+    }
+  }
+}
+.mega-title {
+  font-size: 20px;
+  text-align: center;
+  padding: 10px;
+  border-bottom: 1px solid rgb(119, 119, 119);
+  color: rgb(122, 122, 122);
+}
+.active-lang {
+}
+
+/* БУРГЕР МЕНЮ */
+.burger {
+  display: none;
+  position: relative;
+  z-index: 2050;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 32px;
+  height: 18px;
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  span {
+    height: 2px;
+    width: 80%;
+    transform: scale(1);
+    background: #000;
+    transition: all 0.3s ease;
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    background-color: #462a0b;
+    transition: all 0.3s ease 0s;
+  }
+
+  &::before {
+    top: 0;
+  }
+
+  &::after {
+    bottom: 0;
+  }
+
+  //add active class for animation burger icon
+  // &.active span in CSS will be without space (.burger.active)
+  // .active span in CSS will be with space (.burger. active)
+  &.active span {
+    transform: scale(0);
+  }
+  //add active class for animation burger lines
+  &.active::before {
+    top: 50%;
+    transform: rotate(-45deg) translate(0, -50%);
+  }
+  &.active::after {
+    bottom: 50%;
+    transform: rotate(45deg) translate(0, 50%);
+  }
+}
+
+body.menu-open {
+  overflow: hidden;
+}
+
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  background: rgba(248, 248, 248, 0.9);
+  padding: 100px 20px 40px;
+  overflow-y: auto;
+  z-index: 2000;
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-size: 20px;
+
+    li {
+      padding-bottom: 15px;
+      border-bottom: 1px solid rgba(119, 119, 119, 0.3);
+    }
+  }
+}
+.mobile-nav {
+}
+.has-submenu {
+}
+.submenu-toggle {
+  padding-left: 20px;
+}
+.submenu {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-left: 15px;
+}
+
+.submenu[hidden] {
+  display: none !important;
+}
+
+@media (max-width: 1200px) {
+  .nav {
+    display: none;
+  }
+
+  .burger {
+    display: flex;
+  }
+}
