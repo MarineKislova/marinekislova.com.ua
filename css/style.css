@@ -493,6 +493,161 @@ body.menu-open {
   display: none !important;
 }
 
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  display: none;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.modal__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.modal__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  position: relative;
+  background: #fff;
+  padding: 40px;
+  border-radius: 8px;
+  z-index: 2;
+  width: 500px;
+}
+
+.modal__close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: transparent;
+  color: #000;
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.modal__close:hover {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.modal h3 {
+  font-size: 24px;
+  line-height: 1.25;
+  text-align: center;
+  color: var(--colorTitle);
+  font-weight: 600;
+  padding-bottom: 15px;
+}
+
+.modal p {
+  line-height: 1.1;
+  text-align: center;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  padding: 20px;
+  gap: 15px;
+}
+
+input {
+  border-bottom: 1px solid var(--colorText);
+  line-height: 2;
+  background-color: cornsilk;
+  padding: 2px;
+  text-align: center;
+  outline: none;
+}
+
+input:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+
+input:focus::-moz-placeholder {
+  color: transparent;
+}
+
+input:focus:-ms-input-placeholder {
+  color: transparent;
+}
+
+input:focus::-ms-input-placeholder {
+  color: transparent;
+}
+
+input:focus::placeholder {
+  color: transparent;
+}
+
+textarea {
+  height: 100px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  outline: none;
+}
+
+textarea:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+
+textarea:focus::-moz-placeholder {
+  color: transparent;
+}
+
+textarea:focus:-ms-input-placeholder {
+  color: transparent;
+}
+
+textarea:focus::-ms-input-placeholder {
+  color: transparent;
+}
+
+textarea:focus::placeholder {
+  color: transparent;
+}
+
+button[sendBtn] {
+  background: var(--colorBtn);
+  color: rgb(245, 243, 238);
+  padding: 10px 15px;
+  border-radius: 3px;
+  width: 50%;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+button[sendBtn]:hover {
+  -webkit-box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.5);
+          box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.5);
+}
+
 .wrapper {
   min-height: 100%;
   overflow: hidden;
