@@ -21,7 +21,7 @@ export const path = {
     js: `${srcFolder}/js/app.js`,
     json: `${srcFolder}/js/data/**/*.json`,
     scss: `${srcFolder}/scss/style.scss`,
-    images: `${srcFolder}/img/**/*.{jpg,jpeg,png,gif,webp}`,
+    images: `${srcFolder}/img/**/*.{jpg,jpeg,png,gif,webp,mp4}`,
     svg: `${srcFolder}/img/**/*.svg`,
     html: `${srcFolder}/*.html`, //.pug
     ru: `${srcFolder}/ru/*.html`, //.pug

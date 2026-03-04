@@ -1,0 +1,37 @@
+@use "../utils/_mixins" as mh;
+
+.hero {
+  @include mh.adaptiv-value("padding", 10, 5, 0);
+
+  &__container {
+    display: flex;
+    flex: 1;
+    background: url(../../img/web_1920-removebg.png) right/contain no-repeat;
+    max-height: max-content;
+  }
+
+  &__left{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 60%;
+    height: 300px;
+    gap: 20px;
+    text-justify: inter-word;
+
+    h1{
+      font-size: 50px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      line-height: 1.2;
+      text-justify: auto;
+    }
+
+    p{
+      font-size: 26px;
+      line-height: 1.5;
+      font-weight: 500;
+    }
+  }
+
+}

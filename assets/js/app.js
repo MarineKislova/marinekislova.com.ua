@@ -11,6 +11,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!menuItem || !menuButton || !megaMenu) return;
 
+  
+
   function openMenu() {
     megaMenu.hidden = false;
     menuButton.setAttribute("aria-expanded", "true");

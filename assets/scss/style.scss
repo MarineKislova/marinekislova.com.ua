@@ -8,12 +8,15 @@
 // блоки
 @use "blocks/_header.scss";
 @use "blocks/_modalContact.scss";
+@use "blocks/_hero.scss";
+@use "blocks/_footer.scss";
 
 .wrapper {
   min-height: 100%;
-  overflow: hidden;
+  // overflow: hidden;
   display: flex;
   flex-direction: column;
+  height: 5000px;
 }
 .content {
   flex: 1 1 auto;

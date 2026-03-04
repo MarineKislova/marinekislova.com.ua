@@ -2,7 +2,7 @@
   <div class="header__container">
     <!-- ЛОГО -->
     <div class="header__logo">
-      <a href="/" class="logo">M<span>a</span>rine<span>|</span>K<span>i</span>slova</a>
+      <a href="/" class="logo">M<span>a</span>r<span>|</span>K<span>i</span>s&nbsp;<span>S</span><span>t</span>udio</a>
     </div>
 
     <!-- НАВИГАЦИЯ -->
@@ -14,7 +14,10 @@
 
         <!-- УСЛУГИ -->
         <li class="menu-item menu-item-has-children">
-          <button class="menu-link" aria-expanded="false" aria-controls="mega-menu-services">Услуги</button>
+          <div class="menu-uslugi">
+            <a href="/uslugi/">Услуги</a>
+            <button class="menu-link" aria-expanded="false" aria-controls="mega-menu-services">&#9662;</button>
+          </div>
 
           <div class="mega-menu" id="mega-menu-services" hidden>
             <div class="mega-column">
@@ -31,17 +34,18 @@
               <p class="mega-title">Создание сайтов</p>
               <ul>
                 <li><a href="/landing/">Лендинг под ключ</a></li>
+                <li><a href="/ads-landing/">Лендинги под рекламу</a></li>
                 <li><a href="/business-card/">Сайт-визитка</a></li>
                 <li><a href="/shop/">Интернет-магазин</a></li>
+                <li><a href="/wordpress/">Разработка на WordPress</a></li>
               </ul>
             </div>
 
             <div class="mega-column">
               <p class="mega-title">Дополнительно</p>
               <ul>
-                <li><a href="/ads-landing/">Лендинги под рекламу</a></li>
                 <li><a href="/google-maps/">Продвижение в Google Maps</a></li>
-                <li><a href="/wordpress/">Разработка на WordPress</a></li>
+                <li><a href="#">Заглушка</a></li>
               </ul>
             </div>
           </div>
@@ -52,11 +56,7 @@
         </li>
 
         <li class="menu-item">
-          <a href="/process/">Процесс работы</a>
-        </li>
-
-        <li class="menu-item">
-          <a href="/prices/">Цены</a>
+          <a href="/process/">Процесс</a>
         </li>
 
         <li class="menu-item">
@@ -169,13 +169,30 @@
     <h3>Ваши контактные данные для связи</h3>
     <p>Если возник вопрос или вы хотите оставить отзыв</p>
 
-    <form>
-      <input type="text" placeholder="Ваше имя/Название компании" required />
-      <input type="tel" placeholder="Телефон" required />
-      <input type="email" placeholder="e-mail" />
-      <textarea name="message" placeholder="Сообщение" required></textarea>
+    <form class="form-modal">
+      <div class="form-group">
+        <input type="text" id="text-modal" required placeholder=" " />
+        <label for="text-modal">Ваше имя / Название компании</label>
+      </div>
 
+      <div class="form-group">
+        <input type="tel" id="tel-modal" required placeholder=" " />
+        <label for="tel-modal">Телефон</label>
+      </div>
+
+      <div class="form-group">
+        <input type="email" id="email-modal" required placeholder=" " />
+        <label for="email-modal">Ваш E-mail</label>
+      </div>
+
+      <div class="form-group">
+        <textarea name="message" required placeholder=" "></textarea>
+        <label>Сообщение</label>
+      </div>
+
+      <!-- honeypot -->
       <input type="text" name="honey" style="display: none" tabindex="-1" autocomplete="off" />
+
       <button id="sendBtn" type="submit">Отправить</button>
       <div id="status-message"></div>
     </form>
