@@ -667,7 +667,7 @@ body.modal-open {
 }
 
 .no-webp .hero__container{
-  background: url(../../img/web_1920-removebg.png) right/contain no-repeat; }
+  background: url(../../img/web-1920-removebg.png) right/contain no-repeat; }
 
 .hero__container {
   display: -webkit-box;
@@ -952,4 +952,4 @@ body.modal-open {
   }
 }
 
-.webp .hero__container{ background: url(../../img/web_1920-removebg.webp) right/contain no-repeat; }
+.webp .hero__container{ background: url(../../img/web-1920-removebg.webp) right/contain no-repeat; }
