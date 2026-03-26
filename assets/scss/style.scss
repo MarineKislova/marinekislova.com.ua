@@ -12,12 +12,16 @@
 @use "blocks/_services.scss";
 @use "blocks/_footer.scss";
 
+html {
+  scroll-behavior: smooth;
+}
+
 .wrapper {
   min-height: 100%;
   // overflow: hidden;
   display: flex;
   flex-direction: column;
-  height: 5000px;
+  // height: 5000px;
 }
 .content {
   flex: 1 1 auto;
@@ -52,5 +56,5 @@
   @include mSt.adaptiv-value("font-size", 24, 22.5, 0);
   color: var(--colorText);
   font-weight: 600;
-  font-family: 'Manrope';
+  font-family: "Manrope";
 }

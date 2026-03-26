@@ -9,7 +9,7 @@
   &__container {
     display: flex;
     justify-content: space-evenly;
-    height: 200px;
+    height: max-content;
     font-family: "Manrope";
     font-weight: 500;
 
@@ -29,7 +29,7 @@
     }
   }
 
-  &__row {
+  &__column {
     a {
       &:hover {
         color: var(--colorSecondary);
@@ -119,8 +119,18 @@
     display: flex;
     align-self: center;
     border-radius: 50%;
-    border: 1px solid rgba(0, 0, 0, 0.5);
+    background: linear-gradient(145deg, #c49d9d 0%, #d7bcbc 25%, #ffffff 80%);
+    // box-shadow:
+    //   5px 5px 10px #7c7c7c,
+    //   -5px -5px 30px #ffffff;
     padding: 10px;
+
+    &:hover {
+      background: linear-gradient(145deg, #ffffff, #e6e6e6);
+      box-shadow:
+        5px 5px 30px #7c7c7c,
+        -5px -5px 30px #ffffff;
+    }
   }
 }
 .logo {
