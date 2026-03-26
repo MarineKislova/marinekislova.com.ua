@@ -11,8 +11,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!menuItem || !menuButton || !megaMenu) return;
 
-  
-
   function openMenu() {
     megaMenu.hidden = false;
     menuButton.setAttribute("aria-expanded", "true");
@@ -78,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   //модальное окно для связи из header
-  const openBtn = document.querySelector(".header__btn");
+  const openModalBtn = document.querySelectorAll(".open-modal");
   const modal = document.getElementById("contact-modal");
   const closeBtn = modal.querySelector(".modal__close");
   const overlay = modal.querySelector(".modal__overlay");
@@ -91,7 +89,9 @@ document.addEventListener("DOMContentLoaded", () => {
     modal.style.display = "none";
   }
 
-  openBtn.addEventListener("click", openModal);
+  openModalBtn.forEach((item) => {
+    item.addEventListener("click", openModal);
+  });
   closeBtn.addEventListener("click", closeModal);
   overlay.addEventListener("click", closeModal);
 

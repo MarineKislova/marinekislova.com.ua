@@ -1,37 +1,98 @@
 @use "../utils/_mixins" as mh;
 
 .hero {
-  @include mh.adaptiv-value("padding", 10, 5, 0);
+  @include mh.adaptiv-value("padding-top", 50, 15, 0);
+  @include mh.adaptiv-value("padding-bottom", 100, 20, 0);
 
   &__container {
     display: flex;
-    flex: 1;
-    background: url(../../img/web-1920-removebg.png) right/contain no-repeat;
-    max-height: max-content;
+    background: url(../img/web-1920-removebg.png) right/contain no-repeat;
+    max-height: 500px;
+    opacity: 0;
+    animation: fade 2s ease-in 100ms forwards;
+
+    @keyframes fade {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    @media (max-width: 768px) {
+      background: url(../img/web-1920-removebg.png) right/30% no-repeat;
+    }
+
+    @media (max-width: 425px) {
+      background: url(../img/web-1920-removebg.png) right/30% no-repeat;
+    }
+
+    @media (max-width: 375px) {
+      background: url(../img/web-1920-removebg.png) right/50% no-repeat;
+    }
   }
 
-  &__left{
+  &__left {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-self: center;
     max-width: 60%;
-    height: 300px;
-    gap: 20px;
-    text-justify: inter-word;
+    @include mh.adaptiv-value("gap", 10, 2, 0);
+    // gap: 20px;
+    text-align: justify;
+    text-justify: auto;
+    z-index: 20;
 
-    h1{
-      font-size: 50px;
+    &:before {
+      content: "";
+      border-bottom: 1px solid var(--colorSecondary);
+      width: 100px;
+      align-self: flex-start;
+    }
+
+    @media (max-width: 768px) {
+      max-width: 100%;
+      align-items: center;
+    }
+
+    h1 {
+      @include mh.adaptiv-value("font-size", 50, 27.5, 0);
+      // font-size: 50px;
       font-weight: 700;
       letter-spacing: 2px;
       line-height: 1.2;
-      text-justify: auto;
+
+      @media (max-width: 768px) {
+        max-width: 100%;
+        align-items: center;
+        text-align: center;
+      }
     }
 
-    p{
-      font-size: 26px;
+    p {
+      @include mh.adaptiv-value("font-size", 26, 19.5, 0);
+      // font-size: 26px;
       line-height: 1.5;
       font-weight: 500;
     }
   }
 
+  &__btns {
+    display: flex;
+    justify-content: center;
+    @include mh.adaptiv-value("gap", 100, 50, 0);
+    // gap: 100px;
+  }
+
+  &__btn-project {
+    background-color: var(--colorSecondary);
+    text-align: center;
+  }
+
+  &__btn-services {
+    background-color: var(--colorSecondary);
+    text-align: center;
+  }
 }

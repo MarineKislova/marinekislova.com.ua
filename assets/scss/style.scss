@@ -9,6 +9,7 @@
 @use "blocks/_header.scss";
 @use "blocks/_modalContact.scss";
 @use "blocks/_hero.scss";
+@use "blocks/_services.scss";
 @use "blocks/_footer.scss";
 
 .wrapper {
@@ -25,4 +26,31 @@
 [class*="__container"] {
   max-width: 1440px;
   margin: 0 auto;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.btn {
+  padding: 10px 15px;
+  background-color: var(--colorBtn);
+  font-weight: 500;
+  color: #ffffff;
+  border-radius: 5px;
+
+  &:hover {
+    background-color: var(--colorBtnHover);
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, 1);
+  }
+}
+
+.h2 {
+  @include mSt.adaptiv-value("font-size", 40, 22.5, 0);
+  font-weight: 600;
+}
+
+.h3 {
+  @include mSt.adaptiv-value("font-size", 24, 22.5, 0);
+  color: var(--colorText);
+  font-weight: 600;
+  font-family: 'Manrope';
 }
