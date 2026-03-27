@@ -5,13 +5,16 @@
   border-top: 1px solid rgba(103, 103, 103, 0.5);
   box-shadow: 0px -3px 5px rgba(0, 0, 0, 0.3);
   background-color: rgba(196, 12, 12, 0.15);
+  @include mh.adaptiv-value("padding-bottom", 10, 5, 0);
 
   &__container {
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: column;
+    gap: 50px;
     height: max-content;
     font-family: "Manrope";
     font-weight: 500;
+    @include mh.adaptiv-value("padding-bottom", 50, 5, 0);
 
     @media (max-width: 1285px) {
       @include mh.adaptiv-value("padding-left", 10, 5, 0);
@@ -29,6 +32,57 @@
     }
   }
 
+  &__row-top {
+    display: flex;
+    justify-content: space-between;
+    display: grid;
+    // Первая колонка берет 2 части места, остальные по одной
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+    justify-items: center;
+
+    // Но для первой колонки (Услуги) лучше оставить выравнивание по левому краю
+    & > div:first-child {
+      justify-self: start;
+    }
+
+    // А последнюю (Контакты) можно прижать к правому краю для баланса
+    & > div:last-child {
+      justify-self: end;
+    }
+
+    @media (max-width: 1100px) {
+      grid-template-columns: 4fr 1fr; // Схлопываем до 2 колонок на планшетах
+    }
+
+    @media (max-width: 768px) {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+  }
+
+  &__row-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 30px;
+    border-top: 1px solid rgba(103, 103, 103, 0.5);
+
+    p {
+      font-weight: 800;
+    }
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      gap: 10px;
+
+      p {
+        line-height: 1.5;
+      }
+    }
+  }
+
   &__column {
     a {
       &:hover {
@@ -39,16 +93,8 @@
     &:nth-child(1) {
       display: flex;
       flex-direction: column;
-      justify-content: space-around;
-      align-items: center;
       gap: 10px;
-      // max-width: 280px;
-    }
-
-    &:nth-child(2) {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
+      // flex: 0 1 50%;
 
       p {
         font-family: "Manrope";
@@ -66,10 +112,11 @@
       }
     }
 
-    &:nth-child(3) {
+    &:nth-child(2) {
       display: flex;
       flex-direction: column;
       gap: 10px;
+      // flex: 0 1 25%;
 
       p {
         font-family: "Manrope";
@@ -86,6 +133,57 @@
         color: var(--colorLinks);
       }
     }
+
+    &:nth-child(3) {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      // flex: 0 1 25%;
+
+      p {
+        font-family: "Manrope";
+        letter-spacing: 2px;
+        font-size: 20px;
+        font-weight: 700;
+      }
+
+      a{
+        align-self: center;
+        font-size: 18px;
+        font-weight: 600;
+      }
+
+      ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        line-height: 1.7;
+        color: var(--colorLinks);
+        gap: 15px;
+        font-weight: bold;
+
+        li {
+          &:last-child {
+            display: flex;
+            justify-content: space-evenly;
+          }
+        }
+      }
+    }
+  }
+
+  &__column-rows {
+    display: flex;
+    gap: 50px;
+
+    @media (max-width: 768px) {
+      flex-direction: column; // Услуги встают в одну колонку
+      gap: 15px; // Уменьшаем разрыв между блоками услуг
+      align-items: center; // Если хотите всё по центру, или flex-start для левого края
+    }
+  }
+
+  &__column-row {
   }
 
   &__logo {
@@ -110,26 +208,54 @@
     text-align: center;
   }
 
-  &__contact-links {
+  &__socials {
     display: flex;
     gap: 15px;
+    align-self: center;
+
+    a {
+      &:hover {
+        transform: translateY(-5px);
+      }
+    }
   }
 
-  &__contact-link {
+  &__has-dot {
+    font-weight: 900 !important;
+    color: var(--colorLinks);
+    font-size: 16px !important;
     display: flex;
-    align-self: center;
-    border-radius: 50%;
-    background: linear-gradient(145deg, #c49d9d 0%, #d7bcbc 25%, #ffffff 80%);
-    // box-shadow:
-    //   5px 5px 10px #7c7c7c,
-    //   -5px -5px 30px #ffffff;
-    padding: 10px;
+    align-items: center;
+    gap: 10px; // Отступ между точкой и текстом
 
-    &:hover {
-      background: linear-gradient(145deg, #ffffff, #e6e6e6);
-      box-shadow:
-        5px 5px 30px #7c7c7c,
-        -5px -5px 30px #ffffff;
+    &::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      background-color: #ff4d4d; // Ярко-красный
+      border-radius: 50%;
+      display: inline-block;
+
+      // Анимация
+      animation: blink-dot 1.5s infinite ease-in-out;
+
+      // Эффект свечения (опционально, для красоты)
+      box-shadow: 0 0 5px rgba(255, 77, 77, 0.8);
+    }
+  }
+
+  @keyframes blink-dot {
+    0% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.3;
+      transform: scale(0.8); // Точка немного уменьшается при затухании
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
     }
   }
 }

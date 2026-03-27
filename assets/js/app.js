@@ -5,6 +5,7 @@ commonFunctions.isWebp();
 document.addEventListener("DOMContentLoaded", () => {
   "use strict";
 
+  //меню
   const menuItem = document.querySelector(".menu-item-has-children");
   const menuButton = menuItem?.querySelector(".menu-link");
   const megaMenu = document.getElementById("mega-menu-services");
@@ -53,6 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // бургер меню
   const burger = document.querySelector(".burger");
   const mobileMenu = document.getElementById("mobile-menu");
+  const mobileMenuLinks = mobileMenu.querySelectorAll('a[href*="#"]');
 
   burger.addEventListener("click", () => {
     burger.classList.toggle("active");
@@ -74,6 +76,27 @@ document.addEventListener("DOMContentLoaded", () => {
     submenuToggle.setAttribute("aria-expanded", !isOpen);
     submenu.hidden = isOpen;
   });
+
+  mobileMenuLinks.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      // Проверяем, что ссылка ведет на текущую страницу (якорь)
+      const href = link.getAttribute("href");
+
+      // Если это просто ссылка на другую страницу, меню закроется само при переходе.
+      // Если это якорь (например, /#contact или #process):
+      if (href.includes("#")) {
+        closeBurgerMenu();
+      }
+    });
+  });
+
+  // Выносим логику закрытия в отдельную функцию, чтобы не дублировать код
+  function closeBurgerMenu() {
+    burger.classList.remove("active");
+    burger.setAttribute("aria-expanded", "false");
+    mobileMenu.hidden = true;
+    document.body.classList.remove("menu-open");
+  }
 
   //модальное окно для связи из header
   const openModalBtn = document.querySelectorAll(".open-modal");

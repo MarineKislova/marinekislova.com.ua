@@ -1,98 +1,88 @@
 @use "../utils/_mixins" as mh;
 
 .hero {
-  @include mh.adaptiv-value("padding-top", 50, 15, 0);
-  @include mh.adaptiv-value("padding-bottom", 100, 20, 0);
+  background-color: rgb(255, 246, 245);
+  position: relative;
+  overflow: hidden; // Чтобы паутина не вылезала
+  @include mh.adaptiv-value("padding", 25, 10, 0);
+
+  // Псевдоэлемент для паутины
+  &::before {
+    content: "";
+    position: absolute;
+    top: -50px; // Смещаем, чтобы она "свисала"
+    right: -50px;
+    width: 600px; // Большая, но тонкая
+    height: 600px;
+    background-image: url("../../img/web-1920-removebg.png"); // Твоя паутина, но в виде тонкой линии
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.15; // Почти невидимая
+    z-index: 1;
+    animation: webDraw 3s ease-out forwards;
+
+    @media (max-width: 484px) {
+      width: 300px; // Уменьшаем размер в два раза
+      height: 300px;
+      top: 150px; // Подтягиваем выше, чтобы не создавала пустую высоту
+      right: 30px;
+    }
+  }
 
   &__container {
     display: flex;
-    background: url(../img/web-1920-removebg.png) right/contain no-repeat;
-    max-height: 500px;
-    opacity: 0;
-    animation: fade 2s ease-in 100ms forwards;
-
-    @keyframes fade {
-      0% {
-        opacity: 0;
-      }
-      100% {
-        opacity: 1;
-      }
-    }
-
-    @media (max-width: 768px) {
-      background: url(../img/web-1920-removebg.png) right/30% no-repeat;
-    }
-
-    @media (max-width: 425px) {
-      background: url(../img/web-1920-removebg.png) right/30% no-repeat;
-    }
-
-    @media (max-width: 375px) {
-      background: url(../img/web-1920-removebg.png) right/50% no-repeat;
-    }
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 2; // Текст поверх паутины
+    gap: 20px;
+    height: max-content;
   }
 
-  &__left {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-self: center;
-    max-width: 60%;
-    @include mh.adaptiv-value("gap", 10, 2, 0);
-    // gap: 20px;
+  &__title {
+    font-family: "Playfair Display", serif;
+    @include mh.adaptiv-value("font-size", 60, 30, 0);
     text-align: justify;
     text-justify: auto;
-    z-index: 20;
-
-    &:before {
-      content: "";
-      border-bottom: 1px solid var(--colorSecondary);
-      width: 100px;
-      align-self: flex-start;
-    }
-
-    @media (max-width: 768px) {
-      max-width: 100%;
-      align-items: center;
-    }
-
-    h1 {
-      @include mh.adaptiv-value("font-size", 50, 27.5, 0);
-      // font-size: 50px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      line-height: 1.2;
-
-      @media (max-width: 768px) {
-        max-width: 100%;
-        align-items: center;
-        text-align: center;
-      }
-    }
-
-    p {
-      @include mh.adaptiv-value("font-size", 26, 19.5, 0);
-      // font-size: 26px;
-      line-height: 1.5;
-      font-weight: 500;
+    .highlight {
+      color: var(--colorPrimary); // Твой акцентный цвет
     }
   }
 
-  &__btns {
+  &__subtitle {
+    font-family: "Manrope", sans-serif;
+    font-weight: 500;
+    line-height: 1.5;
+    @include mh.adaptiv-value("font-size", 28, 19.2, 0);
+    text-align: justify;
+    text-justify: auto;
+  }
+
+  &__actions {
     display: flex;
-    justify-content: center;
-    @include mh.adaptiv-value("gap", 100, 50, 0);
-    // gap: 100px;
-  }
+    gap: 15px;
+    // min-height: 50px;
 
-  &__btn-project {
-    background-color: var(--colorSecondary);
-    text-align: center;
-  }
+    a {
+      align-self: center;
+      padding: 15px 20px;
+    }
 
-  &__btn-services {
-    background-color: var(--colorSecondary);
-    text-align: center;
+    @media (max-width: 484px) {
+      flex-direction: column;
+    }
+  }
+}
+
+// Анимация прорисовки
+@keyframes webDraw {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 0.15;
+    transform: scale(1);
   }
 }
