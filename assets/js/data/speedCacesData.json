@@ -1,0 +1,63 @@
+[
+  {
+    "_instruction": "output: true - показывать, false - скрыть",
+    "id": 1,
+    "titleRU": "Сайт стоматологии на WordPress: от дизайна до Telegram API",
+    "titleUA": "Сайт стоматології на WordPress: від дизайну до Telegram API",
+    "titleEN": "Dental Website on WordPress: From Design to Telegram API",
+    "link": "https://dentalika.markis-studio.com/",
+    "img": "img/speedcases/dentalika-removebg-preview-th.png",
+    "alt": "dentalika",
+    "output": true,
+    "filter": ""
+  },
+  {
+    "_instruction": "output: true - показывать, false - скрыть",
+    "id": 2,
+    "titleRU": "Сайт-визитка (Landing Page) для частного специалиста",
+    "titleUA": "Сайт-візитка (Landing Page) для приватного спеціаліста",
+    "titleEN": "Landing Page for a Private Professional",
+    "link": "https://hofgan.markis-studio.com/",
+    "img": "img/speedcases/remodelers-removebg-preview-th.png",
+    "alt": "remodelers",
+    "output": true,
+    "filter": ""
+  },
+  {
+    "_instruction": "output: true - показывать, false - скрыть",
+    "id": 3,
+    "titleRU": "",
+    "titleUA": "",
+    "titleEN": "",
+    "link": "",
+    "img": "",
+    "alt": "",
+    "output": false,
+    "filter": ""
+  },
+  {
+    "_instruction": "output: true - показывать, false - скрыть",
+    "id": 4,
+    "title": "",
+    "titleRU": "",
+    "titleUA": "",
+    "titleEN": "",
+    "link": "",
+    "img": "",
+    "alt": "",
+    "output": false,
+    "filter": ""
+  },
+  {
+    "_instruction": "output: true - показывать, false - скрыть",
+    "id": 5,
+    "titleRU": "",
+    "titleUA": "",
+    "titleEN": "",
+    "link": "",
+    "img": "",
+    "alt": "",
+    "output": false,
+    "filter": ""
+  }
+]

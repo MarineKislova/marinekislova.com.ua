@@ -1,5 +1,8 @@
 import * as commonFunctions from "./modules/functions.js";
 
+import { renderSpeedCases } from "./modules/speedCases.js";
+import { renderTopSolutions } from "./modules/topSolutions.js";
+
 commonFunctions.isWebp();
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -121,4 +124,24 @@ document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") closeModal();
   });
+
+  // карточки Готовых решений - Speed запуск
+  fetch("/js/data/speedCacesData.json")
+    .then((res) => {
+      if (!res.ok) throw new Error("Portfolio JSON not loaded");
+      return res.json();
+    })
+    .then((speedCases) => {
+      renderSpeedCases(".speed-start__items", speedCases, openModal);
+    });
+
+  // карточки Топ решений Актуальные инструменты
+  fetch("/js/data/topSolutionsData.json")
+    .then((res) => {
+      if (!res.ok) throw new Error("Portfolio JSON not loaded");
+      return res.json();
+    })
+    .then((topSolutions) => {
+      renderTopSolutions(".topSolutions__items", topSolutions);
+    });
 });

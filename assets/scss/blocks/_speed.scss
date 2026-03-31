@@ -1,0 +1,111 @@
+@use "../utils/_mixins" as mh;
+
+.speed-start {
+  &__container {
+    @include mh.adaptiv-value("padding", 25, 10, 0);
+  }
+
+  &__title {
+    text-align: center;
+    @include mh.adaptiv-value("padding-bottom", 50, 25, 0);
+  }
+
+  &__items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    @include mh.adaptiv-value("gap", 30, 10, 0);
+
+    @media (max-width: 1294px) {
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+
+    @media (max-width: 664px) {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    @include mh.adaptiv-value("padding", 50, 25, 0);
+    padding: 30px;
+    gap: 15px;
+    border-radius: 24px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 10px rgba(180, 150, 150, 0.5);
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(-3px);
+    }
+  }
+
+  &__img-link {
+    display: inline-flex;
+    vertical-align: middle;
+    align-self: center;
+    line-height: 0;
+    border-bottom: 1px solid #bfb8b8;
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  &__details-title {
+    text-align: justify;
+    text-justify: auto;
+    line-height: 1.5;
+    font-weight: 700;
+  }
+
+  &__btns {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__btn {
+    padding: 10px 15px;
+    font-weight: 500;
+    border-radius: 5px;
+    border: 1px solid var(--colorBtn);
+    width: max-content;
+    box-shadow: 0 3px 5px rgba(124, 67, 67, 0.5);
+    cursor: pointer;
+
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(-3px) translateX(3px);
+      border: 2px solid #c3110c;
+      font-weight: 500;
+    }
+  }
+
+  &__link {
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(3px) translateX(-3px);
+      font-weight: 500;
+    }
+  }
+}
+.h2 {
+}
+.open-modal {
+}
+.btn {
+}

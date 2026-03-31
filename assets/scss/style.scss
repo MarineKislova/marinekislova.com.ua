@@ -9,6 +9,8 @@
 @use "blocks/_header.scss";
 @use "blocks/_modalContact.scss";
 @use "blocks/_hero.scss";
+@use "blocks/_speed.scss";
+@use "blocks/_topSolutions.scss";
 @use "blocks/_services.scss";
 @use "blocks/_footer.scss";
 
@@ -38,12 +40,14 @@ html {
 .anchor {
   &__container {
     height: 50px;
-    // border-top: 1px solid rgba(103, 103, 103, 0.5);
+
     &::after {
       content: "";
-      @include mSt.adaptiv-value("width", 250, 150, 0);
+      @include mSt.adaptiv-value("width", 250, 100, 0);
       height: 2px;
-      background-color: rgba(103, 103, 103, 0.5);
+      position: relative;
+      bottom: -75%;
+      background-color: #ff0000;
     }
   }
 }
@@ -54,6 +58,7 @@ html {
   font-weight: 500;
   color: #ffffff;
   border-radius: 5px;
+  width: max-content;
 
   &:hover {
     background-color: var(--colorBtnHover);
@@ -68,7 +73,7 @@ html {
 }
 
 .h3 {
-  @include mSt.adaptiv-value("font-size", 24, 19.2, 0);
+  @include mSt.adaptiv-value("font-size", 28, 19.2, 0);
   font-weight: 600;
   font-family: "Manrope";
 }

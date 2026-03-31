@@ -1,0 +1,118 @@
+@use "../utils/_mixins" as mh;
+
+.topSolutions {
+  padding: 10px;
+  &__container {
+    @include mh.adaptiv-value("padding", 25, 10, 0);
+  }
+
+  &__title {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__subtitle {
+    display: flex;
+    justify-content: center;
+    font-weight: 500;
+    line-height: 1.5;
+    text-align: justify;
+    text-justify: auto;
+  }
+
+  &__items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    @include mh.adaptiv-value("gap", 30, 10, 0);
+
+    @media (max-width: 1432px) {
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    }
+
+    @media (max-width: 1294px) {
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+
+    @media (max-width: 664px) {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    @include mh.adaptiv-value("padding", 30, 10, 0);
+    border-radius: 3px;
+    gap: 20px;
+    box-shadow: 0 2px 5px rgba(218, 218, 218, 0.5);
+
+    &:nth-child(2n - 1) {
+      background-color: #f9e8e6;
+      box-shadow: 0 2px 5px rgba(128, 124, 124, 0.5);
+    }
+
+    &:nth-child(2n - 2) {
+      background-color: #dadada;
+      box-shadow: 0 2px 5px rgba(209, 175, 175, 0.5);
+    }
+  }
+
+  &__item-rowTop {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+
+    img {
+      flex: 0 1 80%;
+      max-width: 80%;
+      display: block;
+      // height: auto;
+      object-fit: contain;
+      border-radius: 24px;
+      min-width: 0;
+    }
+  }
+
+  &__services {
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    display: inline-flex;
+    align-items: center;
+    font-weight: 700;
+    @include mh.adaptiv-value("gap", 15, 5, 0);
+    @include mh.adaptiv-value("font-size", 16, 13, 0);
+    color: #c40c0c;
+
+    &::after {
+      content: "";
+
+      width: 2px;
+      @include mh.adaptiv-value("height", 50, 30, 0);
+      background-color: rgba(55, 46, 46, 0.6);
+      background-color: #c40c0c;
+    }
+  }
+
+  &__item-rowBottom {
+    display: flex;
+    align-self: center;
+    align-items: center;
+
+    a {
+      display: flex;
+      align-items: center;
+      @include mh.adaptiv-value("gap", 30, 15, 0);
+      @include mh.adaptiv-value("font-size", 22, 17.6, 0);
+      font-weight: 500;
+    }
+  }
+}
+.h2 {
+}
+.services {
+}
+.arrow {
+}

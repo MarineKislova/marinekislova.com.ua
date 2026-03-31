@@ -1,0 +1,80 @@
+[
+  {
+    "_instruction": "output: true - показывать, false - скрыть",
+    "id": 1,
+    "titleRU": "Разработка и создание лендинга ",
+    "titleUA": "Розробка та створення лендінгу",
+    "titleEN": "Landing page development and creation",
+    "linkService": "/services.html",
+    "link": "/landing-page-development.html",
+    "img": "img/topSolutions/solution-one-640х425.jpg",
+    "alt": "",
+    "output": true,
+    "filter": ""
+  },
+  {
+    "_instruction": "output: true - показывать, false - скрыть",
+    "id": 2,
+    "titleRU": "Разработка квиз-сайта ",
+    "titleUA": "Розробка квіз-сайту",
+    "titleEN": "Development of a quiz website",
+    "linkService": "/services.html",
+    "link": "/quiz-site.html",
+    "img": "img/topSolutions/solution-two-640х425.jpg",
+    "alt": "",
+    "output": true,
+    "filter": ""
+  },
+  {
+    "_instruction": "output: true - показывать, false - скрыть",
+    "id": 3,
+    "titleRU": "Разработка сайта-визитки",
+    "titleUA": "Розробка сайту-візитки",
+    "titleEN": "Development of a business card website",
+    "linkService": "/services.html",
+    "link": "/card-website.html",
+    "img": "img/topSolutions/solution-three-640х427.jpg",
+    "alt": "",
+    "output": true,
+    "filter": ""
+  },
+  {
+    "_instruction": "output: true - показывать, false - скрыть",
+    "id": 4,
+    "titleRU": "Разработка сайта-каталога",
+    "titleUA": "Розробка сайту-каталогу",
+    "titleEN": "Development of a catalog website",
+    "linkService": "/services.html",
+    "link": "/catalog-website.html",
+    "img": "img/topSolutions/solution-one-640х425.jpg",
+    "alt": "",
+    "output": true,
+    "filter": ""
+  },
+  {
+    "_instruction": "output: true - показывать, false - скрыть",
+    "id": 5,
+    "titleRU": "Разработка интернет-магазина ",
+    "titleUA": "Розробка інтернет-магазину",
+    "titleEN": "E-shop development",
+    "linkService": "/services.html",
+    "link": "/ecommerce-website.html",
+    "img": "img/topSolutions/solution-two-640х425.jpg",
+    "alt": "",
+    "output": true,
+    "filter": ""
+  },
+  {
+    "_instruction": "output: true - показывать, false - скрыть",
+    "id": 6,
+    "titleRU": "Разработка на CMS (WordPress)",
+    "titleUA": "Розробка на CMS (WordPress)",
+    "titleEN": "CMS Development (WordPress)",
+    "linkService": "/services.html",
+    "link": "/cms-website.html",
+    "img": "img/topSolutions/solution-three-640х427.jpg",
+    "alt": "",
+    "output": true,
+    "filter": ""
+  }
+]
