@@ -40,7 +40,7 @@
     height: max-content;
   }
 
-  &__title {
+  &__mainTitle {
     font-family: "Playfair Display", serif;
     @include mh.adaptiv-value("font-size", 60, 30, 0);
     text-align: justify;

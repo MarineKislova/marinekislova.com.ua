@@ -11,6 +11,7 @@
 @use "blocks/_hero.scss";
 @use "blocks/_speed.scss";
 @use "blocks/_topSolutions.scss";
+@use "blocks/_faq.scss";
 @use "blocks/_services.scss";
 @use "blocks/_footer.scss";
 
@@ -41,13 +42,40 @@ html {
   &__container {
     height: 50px;
 
-    &::after {
+    @media (max-width: 768px) {
+      &::after {
+        content: "";
+        @include mSt.adaptiv-value("width", 250, 100, 0);
+        height: 2px;
+        position: relative;
+        bottom: -75%;
+        background-color: #ff0000;
+      }
+    }
+  }
+}
+
+[class*="__title"] {
+  display: flex;
+  align-items: center;
+  // justify-content: center;
+  @include mSt.adaptiv-value("padding-bottom", 50, 25, 0);
+  gap: 50px;
+  &::before {
+    content: "";
+    @include mSt.adaptiv-value("width", 250, 100, 0);
+    height: 2px;
+    position: relative;
+    bottom: -75%;
+    background-color: #ff0000;
+  }
+
+  @media (max-width: 768px) {
+    justify-content: center;
+    &::before {
       content: "";
-      @include mSt.adaptiv-value("width", 250, 100, 0);
-      height: 2px;
-      position: relative;
-      bottom: -75%;
-      background-color: #ff0000;
+      width: 0;
+      height: 0;
     }
   }
 }

@@ -1,0 +1,78 @@
+@use "../utils/_mixins" as mh;
+
+.accordion {
+  &__container {
+  }
+
+  &__title {
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    color: darkslategray;
+    padding: 2vh 0;
+    margin-bottom: 1vh;
+    border-bottom: 1px solid lightgray;
+  }
+
+  &__items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+    gap: 50px;
+    padding: 20px;
+    justify-content: center;
+    align-content: start;
+    justify-items: center;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    height: min-content; //!при раскрытии других не открывается body аккордеона при не активном пункте
+    width: 100%;
+    gap: 10px;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+  }
+
+  &__item-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    color: darkslategray;
+    border-bottom: 1px solid rgb(108, 98, 98);
+  }
+
+  &__item-title {
+    font-weight: bold;
+  }
+
+  &__item-icon {
+    color: brown;
+    font-size: 20px;
+  }
+
+  &__item-body {
+    display: none; //!важно, чтобы было none
+    padding: 20px;
+    color: darkslategray;
+    font-size: 16px;
+  }
+}
+.accordion-toggle {
+  cursor: pointer;
+}
+.accordion-icon {
+  &:hover {
+    color: red;
+    transform: scale(1.2, 1.2);
+    font-size: 24px;
+    transition: all 0.3s ease;
+  }
+}
+
+.collapsed {
+  height: max-content; //!при раскрытии принимает максмальную высоту под контент
+}

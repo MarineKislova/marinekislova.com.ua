@@ -15,19 +15,6 @@
   {
     "_instruction": "output: true - показывать, false - скрыть",
     "id": 2,
-    "titleRU": "Разработка квиз-сайта ",
-    "titleUA": "Розробка квіз-сайту",
-    "titleEN": "Development of a quiz website",
-    "linkService": "/services.html",
-    "link": "/quiz-site.html",
-    "img": "img/topSolutions/solution-two-640х425.jpg",
-    "alt": "",
-    "output": true,
-    "filter": ""
-  },
-  {
-    "_instruction": "output: true - показывать, false - скрыть",
-    "id": 3,
     "titleRU": "Разработка сайта-визитки",
     "titleUA": "Розробка сайту-візитки",
     "titleEN": "Development of a business card website",
@@ -40,13 +27,27 @@
   },
   {
     "_instruction": "output: true - показывать, false - скрыть",
+    "id": 3,
+    "titleRU": "Разработка квиз-сайта ",
+    "titleUA": "Розробка квіз-сайту",
+    "titleEN": "Development of a quiz website",
+    "linkService": "/services.html",
+    "link": "/quiz-site.html",
+    "img": "img/topSolutions/solution-two-640х425.jpg",
+    "alt": "",
+    "output": true,
+    "filter": ""
+  },
+
+  {
+    "_instruction": "output: true - показывать, false - скрыть",
     "id": 4,
     "titleRU": "Разработка сайта-каталога",
     "titleUA": "Розробка сайту-каталогу",
     "titleEN": "Development of a catalog website",
     "linkService": "/services.html",
     "link": "/catalog-website.html",
-    "img": "img/topSolutions/solution-one-640х425.jpg",
+    "img": "img/topSolutions/sulution-catalog-640x427.jpg",
     "alt": "",
     "output": true,
     "filter": ""
@@ -59,7 +60,7 @@
     "titleEN": "E-shop development",
     "linkService": "/services.html",
     "link": "/ecommerce-website.html",
-    "img": "img/topSolutions/solution-two-640х425.jpg",
+    "img": "img/topSolutions/online-store-640x427.jpg",
     "alt": "",
     "output": true,
     "filter": ""
@@ -72,7 +73,7 @@
     "titleEN": "CMS Development (WordPress)",
     "linkService": "/services.html",
     "link": "/cms-website.html",
-    "img": "img/topSolutions/solution-three-640х427.jpg",
+    "img": "img/topSolutions/cms-640x425.jpg",
     "alt": "",
     "output": true,
     "filter": ""

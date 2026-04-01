@@ -2,6 +2,7 @@ import * as commonFunctions from "./modules/functions.js";
 
 import { renderSpeedCases } from "./modules/speedCases.js";
 import { renderTopSolutions } from "./modules/topSolutions.js";
+import { toggleAccordion } from "./modules/accordion.js";
 
 commonFunctions.isWebp();
 
@@ -144,4 +145,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .then((topSolutions) => {
       renderTopSolutions(".topSolutions__items", topSolutions);
     });
+
+  //аккордеон на главной
+toggleAccordion(".accordion-toggle", "[data-accordion='faq']", ".accordion-icon", ".accordion__item-body");
 });
