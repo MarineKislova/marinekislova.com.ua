@@ -199,4 +199,18 @@ function loadFaq(pageName, containerSelector, dataAtr) {
   if (document.querySelector("[data-accordion='faqItemsOnLanding']")) {
     loadFaq("landing", "[data-accordion='faqItemsOnLanding']", "faqItemOnLanding");
   }
+
+  // На разработка квизов:
+  if (document.querySelector("[data-accordion='faqItemsOnQuiz']")) {
+    loadFaq("quiz-site", "[data-accordion='faqItemsOnQuiz']", "faqItemOnQuiz");
+  }
+
+    // На разработка сайта визитки:
+  if (document.querySelector("[data-accordion='faqItemsOnCard']")) {
+    loadFaq("vizitka", "[data-accordion='faqItemsOnCard']", "faqItemOnCard");
+  }
+    // На разработка сайт каталог:
+  if (document.querySelector("[data-accordion='faqItemsOnСatalog']")) {
+    loadFaq("catalog", "[data-accordion='faqItemsOnСatalog']", "faqItemOnСatalog");
+  }
 });
