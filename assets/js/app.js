@@ -2,6 +2,7 @@ import * as commonFunctions from "./modules/functions.js";
 
 import { renderSpeedCases } from "./modules/speedCases.js";
 import { renderTopSolutions } from "./modules/topSolutions.js";
+import { renderFAQ } from "./modules/faq.js";
 import { toggleAccordion } from "./modules/accordion.js";
 
 commonFunctions.isWebp();
@@ -133,7 +134,9 @@ document.addEventListener("DOMContentLoaded", () => {
       return res.json();
     })
     .then((speedCases) => {
-      renderSpeedCases(".speed-start__items", speedCases, openModal);
+      if (document.querySelector(".speed-start__items")) {
+        renderSpeedCases(".speed-start__items", speedCases, openModal);
+      }
     });
 
   // карточки Топ решений Актуальные инструменты
@@ -143,9 +146,57 @@ document.addEventListener("DOMContentLoaded", () => {
       return res.json();
     })
     .then((topSolutions) => {
-      renderTopSolutions(".topSolutions__items", topSolutions);
+      if (document.querySelector(".topSolutions__items")) {
+        renderTopSolutions(".topSolutions__items", topSolutions);
+      }
     });
 
-  //аккордеон на главной
-toggleAccordion(".accordion-toggle", "[data-accordion='faq']", ".accordion-icon", ".accordion__item-body");
+  //рендер faq на главной
+  // fetch("/js/data/faqData.json")
+  //   .then((res) => {
+  //     if (!res.ok) throw new Error("Portfolio JSON not loaded");
+  //     return res.json();
+  //   })
+  //   .then((allFaq) => {
+  //     const mainPageFaq = allFaq.filter((item) => item.page === "main");
+  //     // console.log(mainPageFaq);
+  //     renderFAQ("[data-accordion='faqItemsOnMain']", mainPageFaq);
+  //     //аккордеон на главной
+  //     toggleAccordion(".accordion-toggle", "[data-accordion='faqItemOnMain']", ".accordion-icon", ".accordion__item-body");
+  //   });
+
+function loadFaq(pageName, containerSelector, dataAtr) {
+    const container = document.querySelector(containerSelector);
+    
+    if (!container) return;
+
+    fetch("/js/data/faqData.json")
+      .then((res) => res.json())
+      .then((allFaq) => {
+        const filteredFaq = allFaq.filter((item) => item.page === pageName);
+
+        if (filteredFaq.length > 0) {
+          // 1. Рендерим, передавая имя атрибута
+          renderFAQ(containerSelector, filteredFaq, dataAtr);
+
+          // 2. Оживляем именно эти айтемы
+          toggleAccordion(
+            ".accordion-toggle", 
+            `[data-accordion='${dataAtr}']`,
+            ".accordion-icon", 
+            ".accordion__item-body"
+          );
+        }
+      });
+}
+
+  // На главной:
+  if (document.querySelector("[data-accordion='faqItemsOnMain']")) {
+    loadFaq("main", "[data-accordion='faqItemsOnMain']", "faqItemOnMain");
+  }
+
+  // На разработка лендингов:
+  if (document.querySelector("[data-accordion='faqItemsOnLanding']")) {
+    loadFaq("landing", "[data-accordion='faqItemsOnLanding']", "faqItemOnLanding");
+  }
 });

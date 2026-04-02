@@ -25,7 +25,7 @@ function renderTopSolutions(itemsSelector, projects) {
 
     const cardServiceLink = document.createElement("a");
     cardServiceLink.href = item.linkService;
-    if (htmlLang === "ua") cardServiceLink.textContent = "Послуги";
+    if (htmlLang === "uk") cardServiceLink.textContent = "Послуги";
     if (htmlLang === "en") cardServiceLink.textContent = "Услуги";
     if (htmlLang === "ru") cardServiceLink.textContent = "Services";
     cardService.appendChild(cardServiceLink);
@@ -41,7 +41,7 @@ function renderTopSolutions(itemsSelector, projects) {
 
     const cardLink = document.createElement("a");
     cardLink.href = item.link;
-    if (htmlLang === "ua") cardLink.textContent = item.titleUA;
+    if (htmlLang === "uk") cardLink.textContent = item.titleUA;
     if (htmlLang === "en") cardLink.textContent = item.titleEN;
     if (htmlLang === "ru") cardLink.textContent = item.titleRU;
     cardRowBottom.appendChild(cardLink);

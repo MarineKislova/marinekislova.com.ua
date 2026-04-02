@@ -32,7 +32,7 @@ function renderSpeedCases(itemsSelector, projects, openModalCallback) {
     //details
     const details = document.createElement("div");
     details.classList.add("speed-start__details-title");
-    if (htmlLang === "ua") details.textContent = item.titleUA;
+    if (htmlLang === "uk") details.textContent = item.titleUA;
     if (htmlLang === "en") details.textContent = item.titleEN;
     if (htmlLang === "ru") details.textContent = item.titleRU;
     cardItem.appendChild(details);
@@ -45,7 +45,7 @@ function renderSpeedCases(itemsSelector, projects, openModalCallback) {
     //btn open modal
     const btnModal = document.createElement("p");
     btnModal.classList.add("speed-start__btn", "open-modal");
-    if (htmlLang === "ua") btnModal.textContent = "Отримати консультацію";
+    if (htmlLang === "uk") btnModal.textContent = "Отримати консультацію";
     if (htmlLang === "en") btnModal.textContent = "Get a consultation";
     if (htmlLang === "ru") btnModal.textContent = "Получить консультацию";
     btns.appendChild(btnModal);
@@ -57,7 +57,7 @@ function renderSpeedCases(itemsSelector, projects, openModalCallback) {
     demoBtn.rel = "nofollow";
     demoBtn.target = "_blank";
     demoBtn.title = item.alt;
-    if (htmlLang === "ua") demoBtn.textContent = "Живе демо";
+    if (htmlLang === "uk") demoBtn.textContent = "Живе демо";
     if (htmlLang === "en") demoBtn.textContent = "Live demo";
     if (htmlLang === "ru") demoBtn.textContent = "Живое демо";
     btns.appendChild(demoBtn);

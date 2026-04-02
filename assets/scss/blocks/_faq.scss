@@ -1,24 +1,20 @@
 @use "../utils/_mixins" as mh;
 
 .accordion {
+  @include mh.adaptiv-value("padding", 10, 0, 0);
   &__container {
+    @include mh.adaptiv-value("padding", 25, 10, 0);
   }
 
   &__title {
-    font-weight: bold;
-    font-size: 20px;
-    text-align: center;
-    color: darkslategray;
-    padding: 2vh 0;
-    margin-bottom: 1vh;
-    border-bottom: 1px solid lightgray;
+
   }
 
   &__items {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
-    gap: 50px;
-    padding: 20px;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    @include mh.adaptiv-value("padding", 20, 5, 0);
     justify-content: center;
     align-content: start;
     justify-items: center;
@@ -30,19 +26,25 @@
     height: min-content; //!при раскрытии других не открывается body аккордеона при не активном пункте
     width: 100%;
     gap: 10px;
-    padding: 15px;
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+     @include mh.adaptiv-value("padding", 15, 7.5, 0);
+     @include mh.adaptiv-value("line-height", 24, 22, 0);;
+    // background-color: rgba(255, 255, 255, 0.8);
+    // border-radius: 5px;
+    // box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     transition: background-color 0.3s ease;
+    
+    &::after{
+      content: "";
+      width: 100%;
+      height: 1px;
+      background-color: var(--colorSecondary);
+    }
   }
 
   &__item-header {
     display: flex;
     justify-content: space-between;
     font-size: 18px;
-    color: darkslategray;
-    border-bottom: 1px solid rgb(108, 98, 98);
   }
 
   &__item-title {
