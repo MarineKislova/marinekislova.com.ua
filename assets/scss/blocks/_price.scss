@@ -1,10 +1,10 @@
 @use "../utils/_mixins" as mh;
 
 .price {
-  padding: 5px;
+  @include mh.adaptiv-value("padding", 10, 0, 0);
   &__container {
-    @include mh.adaptiv-value("padding", 25, 10, 0);
-    // max-width: 1920px !important;
+    @include mh.adaptiv-value("padding", 25, 0, 0);
+    
   }
 
   &__title {
@@ -12,16 +12,18 @@
   }
 
   &__common {
-    display: flex;
-    @include mh.adaptiv-value("font-size", 18, 14, 0);
-    font-family: "Manrope";
-    font-style: italic;
-    @include mh.adaptiv-value("padding-bottom", 25, 15, 0);
-    line-height: 1.5;
-    text-align: justify;
-    text-justify: auto;
+    max-width: 1000px;
+    margin: 0 auto 20px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #666;
+    padding: 15px;
+    border: 1px dashed #ddd;
+    border-radius: 8px;
 
     span {
+      color: #333;
       font-weight: 600;
     }
   }
@@ -29,33 +31,45 @@
   &__items {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    @include mh.adaptiv-value("gap", 20, 10, 0);
+    @include mh.adaptiv-value("gap", 20, 8, 0);
     align-items: stretch;
+
+
+    @media (max-width: 1212px) {
+      grid-template-columns: 1fr 1fr;
+    }
+    @media (max-width: 375px) {
+      grid-template-columns: 1fr 1fr;
+    }
   }
 
   &__item {
-    background: #ffffff;
-    border: 1px solid #e0e0e0;
+    background: rgba(218, 218, 218, 0.2);
+    border: 1px solid #f5d6d6;
+
     border-radius: 12px;
-    padding: 20px;
+    @include mh.adaptiv-value("padding", 20, 10, 0);
+    // padding: 20px;
     display: flex;
     flex-direction: column;
+    box-shadow: 0px 3px 5px rgba(75, 72, 72, 0.5);
     transition:
       transform 0.3s ease,
       box-shadow 0.3s ease;
 
     &:hover {
       // transform: translateY(-5px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+      // box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
       border-color: var(--colorSecondary);
     }
   }
 
   &__item-title {
-    font-size: 22px;
+    @include mh.adaptiv-value("font-size", 20, 16, 0);
+    // font-size: 20px;
     font-weight: 700;
-    margin-bottom: 15px;
-    color: #333;
+    margin-bottom: 8px;
+    color: #222;
     min-height: 54px; /* Чтобы заголовки в 2 строки не ломали сетку */
     display: flex;
     align-items: center;
@@ -63,7 +77,7 @@
   }
 
   &__item-cost {
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 600;
     color: #007bff;
     line-height: 1.5;
@@ -77,24 +91,33 @@
     // margin-bottom: 30px;
 
     li {
-      font-size: 14px;
-      line-height: 1.5;
+      font-size: 13.5px;
+      @include mh.adaptiv-value("line-height", 22.5, 16, 0);
+      // line-height: 1.5;
       color: #555;
       margin-bottom: 12px;
       position: relative;
-      padding-left: 20px;
+      padding-left: 18px;
 
       &::before {
         content: "✓";
         position: absolute;
         left: 0;
-        color: #28a745;
+        color: #71bd83;
         font-weight: bold;
       }
 
       span {
         font-weight: 600;
         color: #333;
+
+        // font-weight: 600;
+        // color: #222;
+        // display: block; // Выносим заголовок пункта на новую строку для компактности
+        // margin-bottom: 2px;
+        // font-size: 12px;
+        // text-transform: uppercase;
+        // letter-spacing: 0.5px;
       }
     }
   }
@@ -102,14 +125,15 @@
   &__item-btns {
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    margin-bottom: 10px;
+    gap: 10px;
+    margin-bottom: 12px;
   }
 
   &__item-btn {
     display: inline-block;
     text-align: center;
-    padding: 14px 20px;
+    @include mh.adaptiv-value("padding", 14, 10, 0);
+    // padding: 14px;
     border-radius: 8px;
     font-size: 15px;
     font-weight: 600;
