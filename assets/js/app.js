@@ -165,9 +165,9 @@ document.addEventListener("DOMContentLoaded", () => {
   //     toggleAccordion(".accordion-toggle", "[data-accordion='faqItemOnMain']", ".accordion-icon", ".accordion__item-body");
   //   });
 
-function loadFaq(pageName, containerSelector, dataAtr) {
+  function loadFaq(pageName, containerSelector, dataAtr) {
     const container = document.querySelector(containerSelector);
-    
+
     if (!container) return;
 
     fetch("/js/data/faqData.json")
@@ -180,15 +180,10 @@ function loadFaq(pageName, containerSelector, dataAtr) {
           renderFAQ(containerSelector, filteredFaq, dataAtr);
 
           // 2. Оживляем именно эти айтемы
-          toggleAccordion(
-            ".accordion-toggle", 
-            `[data-accordion='${dataAtr}']`,
-            ".accordion-icon", 
-            ".accordion__item-body"
-          );
+          toggleAccordion(".accordion-toggle", `[data-accordion='${dataAtr}']`, ".accordion-icon", ".accordion__item-body");
         }
       });
-}
+  }
 
   // На главной:
   if (document.querySelector("[data-accordion='faqItemsOnMain']")) {
@@ -205,12 +200,30 @@ function loadFaq(pageName, containerSelector, dataAtr) {
     loadFaq("quiz-site", "[data-accordion='faqItemsOnQuiz']", "faqItemOnQuiz");
   }
 
-    // На разработка сайта визитки:
+  // На разработка сайта визитки:
   if (document.querySelector("[data-accordion='faqItemsOnCard']")) {
     loadFaq("vizitka", "[data-accordion='faqItemsOnCard']", "faqItemOnCard");
   }
-    // На разработка сайт каталог:
+  // На разработка сайт каталог:
   if (document.querySelector("[data-accordion='faqItemsOnСatalog']")) {
     loadFaq("catalog", "[data-accordion='faqItemsOnСatalog']", "faqItemOnСatalog");
   }
+
+  //скролл кнопка
+  const scrollTopBtn = document.getElementById("scrollTop");
+
+  window.addEventListener("scroll", () => {
+    if (window.pageYOffset > 500) {
+      scrollTopBtn.classList.add("_active");
+    } else {
+      scrollTopBtn.classList.remove("_active");
+    }
+  });
+
+  scrollTopBtn.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  });
 });

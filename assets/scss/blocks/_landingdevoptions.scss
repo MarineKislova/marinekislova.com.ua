@@ -1,0 +1,405 @@
+@use "../utils/_mixins" as mh;
+
+// Hero-блок
+.hero-l {
+  @include mh.adaptiv-value("padding", 50, 10, 0);
+  // background: linear-gradient(135deg, #f8f9fa 0%, #eef6ff 100%);
+  text-align: center;
+  // Псевдоэлемент для паутины
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50px; // Смещаем, чтобы она "свисала"
+    right: -50px;
+    width: 600px; // Большая, но тонкая
+    height: 600px;
+    background-image: url("../../img/web-1920-removebg.png"); // Твоя паутина, но в виде тонкой линии
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.15; // Почти невидимая
+    z-index: 1;
+    animation: webDraw 3s ease-out forwards;
+
+    @media (max-width: 484px) {
+      width: 300px; // Уменьшаем размер в два раза
+      height: 300px;
+      top: 150px; // Подтягиваем выше, чтобы не создавала пустую высоту
+      right: 30px;
+    }
+  }
+
+  &__tittle {
+    @include mh.adaptiv-value("font-size", 56, 28, 0);
+    font-weight: 800;
+    line-height: 1.1;
+    max-width: 900px;
+    margin: 0 auto;
+    @include mh.adaptiv-value("padding-bottom", 25, 10, 0);
+  }
+
+  &__subtitle {
+    @include mh.adaptiv-value("font-size", 20, 16, 0);
+    max-width: 700px;
+    margin: 0 auto;
+    @include mh.adaptiv-value("padding-bottom", 40, 20, 0);
+    color: #555;
+  }
+}
+
+// Позиціонування
+.positioning {
+  @include mh.adaptiv-value("padding-top", 50, 25, 0);
+  @include mh.adaptiv-value("padding-bottom", 50, 25, 0);
+  background-color: #fdfdfd;
+
+  &__lead {
+    @include mh.adaptiv-value("font-size", 24, 18, 0);
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    @include mh.adaptiv-value("padding-bottom", 50, 25, 0);
+    font-weight: 500;
+    color: #1a1a1a;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+  }
+
+  &__item {
+    padding: 30px;
+    background: #fff;
+    border-left: 4px solid rgba(196, 12, 12, 0.5);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    h3 {
+      padding-bottom: 10px;
+      font-weight: 700;
+    }
+  }
+}
+
+// Технічні особливості (Hard Skills блок)
+.tech-features {
+  @include mh.adaptiv-value("padding-top", 50, 25, 0);
+  @include mh.adaptiv-value("padding-bottom", 50, 25, 0);
+
+  &__title {
+  }
+
+  &__body {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    @include mh.adaptiv-value("gap", 20, 12, 0);
+
+    li {
+      position: relative;
+      padding-left: 25px;
+      border-radius: 15px;
+      @include mh.adaptiv-value("font-size", 18, 16, 0);
+      @include mh.adaptiv-value("line-height", 24, 20, 0);
+      color: #444;
+
+      // Стильна іконка чек-боксу
+      &::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: #0dc437;
+        font-weight: bold;
+      }
+
+      strong {
+        display: block;
+        color: #1a1a1a;
+        font-weight: 700;
+        padding-bottom: 5px;
+        @include mh.adaptiv-value("font-size", 20, 18, 0);
+      }
+    }
+  }
+}
+
+// Етапи (Steps)
+.steps {
+  @include mh.adaptiv-value("padding-top", 50, 25, 0);
+  @include mh.adaptiv-value("padding-bottom", 50, 25, 0);
+  background-color: #fdfdfd;
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    @include mh.adaptiv-value("gap", 20, 12, 0);
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr 1fr;
+    }
+    @media (max-width: 480px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__item {
+    font-weight: 800;
+    @include mh.adaptiv-value("padding", 30, 15, 0);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    span {
+      color: rgba(195, 17, 12, 0.4); // Полупрозрачная цифра
+      font-weight: 800;
+      @include mh.adaptiv-value("font-size", 24, 18, 0);
+    }
+
+    &:nth-child(2n - 1) {
+      background-color: #f9e8e6;
+      box-shadow: 0 2px 5px rgba(128, 124, 124, 0.5);
+    }
+
+    &:nth-child(2n - 2) {
+      background-color: #dadada;
+      box-shadow: 0 2px 5px rgba(209, 175, 175, 0.5);
+    }
+  }
+}
+
+// Таблиця цін
+.pricing {
+  @include mh.adaptiv-value("padding-top", 50, 25, 0);
+  @include mh.adaptiv-value("padding-bottom", 50, 25, 0);
+
+  &__table-wrapper {
+    overflow-x: auto; // Для мобільних
+  }
+
+  &__table {
+    width: 100%;
+    border-collapse: collapse;
+    @include mh.adaptiv-value("padding-top", 40, 20, 0);
+
+    th,
+    td {
+      @include mh.adaptiv-value("padding-top", 20, 12, 0);
+      @include mh.adaptiv-value("padding-bottom", 20, 12, 0);
+      @include mh.adaptiv-value("padding-left", 20, 7, 0);
+      @include mh.adaptiv-value("padding-right", 20, 7, 0);
+      text-align: left;
+      border-bottom: 1px solid #eee;
+    }
+
+    th {
+      background: #f8f9fa;
+      font-weight: 800;
+      color: rgba(195, 17, 12, 0.6);
+      text-transform: uppercase;
+      font-size: 14px;
+    }
+
+    tr:hover {
+      background: #fcfcfc;
+    }
+
+    strong {
+      color: #1a1a1a;
+    }
+  }
+}
+
+// Вибір формату
+.dev-choice {
+  @include mh.adaptiv-value("padding-top", 50, 25, 0);
+  @include mh.adaptiv-value("padding-bottom", 50, 25, 0);
+  background-color: #fdfdfd;
+  &__container {
+  }
+
+  &__title {
+  }
+
+  &__body {
+    display: flex;
+    gap: 20px;
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 10px;
+    background: #fff;
+
+    gap: 10px;
+  }
+
+  &__info-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-top: 30px;
+  }
+
+  &__info-text {
+  }
+
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: #007bff;
+    font-weight: 700;
+    @include mh.adaptiv-value("font-size", 18, 16, 0);
+    margin-top: 10px;
+    transition: all 0.3s ease;
+
+    svg {
+      transition: transform 0.3s ease;
+    }
+
+    &:hover {
+      color: #0056b3;
+      svg {
+        transform: translateX(5px);
+      }
+    }
+  }
+}
+.h2 {
+}
+.card-pure {
+  background-color: #f9e8e6;
+  box-shadow: 0 3px 10px rgba(107, 95, 95, 0.51);
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-bottom: 1px solid rgba(180, 180, 180, 0.5);
+    padding-bottom: 15px;
+  }
+
+  &__subtitle {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1a1a1a;
+  }
+
+  &__tag {
+    font-weight: 500;
+    font-style: italic;
+    color: rgba(195, 17, 12, 0.9);
+    text-transform: uppercase;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 15px;
+    line-height: 24px;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    li {
+      position: relative;
+      padding-left: 25px;
+      border-radius: 15px;
+      @include mh.adaptiv-value("font-size", 18, 16, 0);
+      @include mh.adaptiv-value("line-height", 24, 20, 0);
+      color: #444;
+
+      // Стильна іконка чек-боксу
+      &::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: #0dc437;
+        font-weight: bold;
+      }
+    }
+  }
+
+  &__footer {
+    display: flex;
+    padding-top: 30px;
+  }
+
+  &__price {
+    font-weight: 600;
+  }
+}
+.card-admin {
+  background-color: #dadada;
+  box-shadow: 0 3px 10px rgba(186, 124, 124, 0.51);
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-bottom: 1px solid rgba(180, 180, 180, 0.5);
+    padding-bottom: 15px;
+  }
+
+  &__subtitle {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1a1a1a;
+  }
+
+  &__tag {
+    font-weight: 500;
+    font-style: italic;
+    color: rgba(195, 17, 12, 0.9);
+    text-transform: uppercase;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 15px;
+    line-height: 24px;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    li {
+      position: relative;
+      padding-left: 25px;
+      border-radius: 15px;
+      @include mh.adaptiv-value("font-size", 18, 16, 0);
+      @include mh.adaptiv-value("line-height", 24, 20, 0);
+      color: #444;
+
+      // Стильна іконка чек-боксу
+      &::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: #0dc437;
+        font-weight: bold;
+      }
+    }
+  }
+
+  &__footer {
+    display: flex;
+    padding-top: 30px;
+  }
+
+  &__price {
+    font-weight: 600;
+  }
+}

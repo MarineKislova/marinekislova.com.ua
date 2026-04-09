@@ -1,10 +1,10 @@
 @use "../utils/_mixins" as mh;
 
 .price {
-  @include mh.adaptiv-value("padding", 10, 0, 0);
+  @include mh.adaptiv-value("padding", 50, 10, 0);
+  background-color: #ffffff;
   &__container {
-    @include mh.adaptiv-value("padding", 25, 0, 0);
-    
+    // @include mh.adaptiv-value("padding", 25, 0, 0);
   }
 
   &__title {
@@ -33,7 +33,6 @@
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     @include mh.adaptiv-value("gap", 20, 8, 0);
     align-items: stretch;
-
 
     @media (max-width: 1212px) {
       grid-template-columns: 1fr 1fr;

@@ -1,9 +1,10 @@
 @use "../utils/_mixins" as mh;
 
 .topSolutions {
-  padding: 10px;
+    @include mh.adaptiv-value("padding", 50, 25, 0);
+  background-color: #ffffff;
   &__container {
-    @include mh.adaptiv-value("padding", 25, 10, 0);
+    // @include mh.adaptiv-value("padding", 25, 10, 0);
   }
 
   &__title {

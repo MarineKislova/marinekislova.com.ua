@@ -12,10 +12,13 @@
 @use "blocks/_benefits.scss";
 @use "blocks/_speed.scss";
 @use "blocks/_topSolutions.scss";
+@use "blocks/_process.scss";
 @use "blocks/_price.scss";
+@use "blocks/_about.scss";
 @use "blocks/_faq.scss";
 @use "blocks/_services.scss";
 @use "blocks/_footer.scss";
+@use "blocks/_landingdevoptions.scss";
 
 html {
   scroll-behavior: smooth;
@@ -27,7 +30,7 @@ html {
   display: flex;
   flex-direction: column;
   background-color: #fff6f5;
-  height: 5000px;
+  // height: 5000px;
 }
 .content {
   flex: 1 1 auto;
@@ -65,7 +68,7 @@ html {
   gap: 50px;
   &::before {
     content: "";
-    @include mSt.adaptiv-value("width", 250, 100, 0);
+    @include mSt.adaptiv-value("width", 150, 50, 0);
     height: 2px;
     position: relative;
     bottom: -75%;
@@ -106,4 +109,45 @@ html {
   @include mSt.adaptiv-value("font-size", 28, 19.2, 0);
   font-weight: 600;
   font-family: "Manrope";
+}
+
+.scroll-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background-color: rgba(255, 0, 0, 0.6); // Твій акцентний синій
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 1000;
+
+  // Початковий стан (прихована)
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+
+  &._active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  &:hover {
+    background-color: rgba(255, 0, 0, 0.8);
+    box-shadow: 0 5px 15px rgba(195, 17, 12, 0.3);
+  }
+
+  @media (max-width: 768px) {
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+  }
 }

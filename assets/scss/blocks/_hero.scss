@@ -4,13 +4,14 @@
   background-color: rgb(255, 246, 245);
   position: relative;
   overflow: hidden; // Чтобы паутина не вылезала
-  @include mh.adaptiv-value("padding", 25, 10, 0);
+  @include mh.adaptiv-value("padding-top", 50, 20, 0);
+  @include mh.adaptiv-value("padding-bottom", 25, 10, 0);
 
   // Псевдоэлемент для паутины
   &::before {
     content: "";
     position: absolute;
-    top: -50px; // Смещаем, чтобы она "свисала"
+    top: 50px; // Смещаем, чтобы она "свисала"
     right: -50px;
     width: 600px; // Большая, но тонкая
     height: 600px;
@@ -36,7 +37,7 @@
     justify-content: space-between;
     position: relative;
     z-index: 2; // Текст поверх паутины
-    gap: 20px;
+    @include mh.adaptiv-value("gap", 40, 20, 0);
     height: max-content;
   }
 

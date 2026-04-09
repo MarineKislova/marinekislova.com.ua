@@ -1,0 +1,83 @@
+@use "../utils/_mixins" as mh;
+
+.process {
+  padding: 10px;
+  &__container {
+    @include mh.adaptiv-value("padding", 25, 10, 0);
+  }
+
+  &__title {
+    // display: flex;
+    // justify-content: center;
+  }
+
+  &__items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+  }
+
+  &__item {
+    flex: 0 1 calc((100% - 40px) / 2); // 2 колонки
+    min-width: 300px;
+    background: #f9f9f9; // Легкий фон для карточки
+    @include mh.adaptiv-value("padding", 40, 20, 0);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    border-left: 4px solid rgba(196, 12, 12, 0.75); // Акцентная линия
+    // border-top: 1px solid var(--colorSecondary);
+    box-shadow: 0px 1px 3px rgba(113, 72, 72, 0.52);
+
+    @media (max-width: 768px) {
+      flex: 0 1 100%;
+    }
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+
+  &__number {
+    font-size: 24px;
+    font-weight: 800;
+    color: rgba(195, 17, 12, 0.4); // Полупрозрачная цифра
+    font-family: "Space Mono", monospace;
+  }
+
+  &__subtitle {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  &__text {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #444;
+    flex-grow: 1;
+    margin-bottom: 20px;
+  }
+
+  &__result {
+    font-size: 14px;
+    padding: 12px;
+    background: rgba(0, 123, 255, 0.05);
+    border-radius: 6px;
+    color: #333;
+    line-height: 1.2;
+
+    strong {
+      color: #b70202;
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: 0.05em;
+      display: block;
+      margin-bottom: 4px;
+    }
+  }
+}
