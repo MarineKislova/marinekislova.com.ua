@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="norobots" content="noindex, nofollow" />
   
-  <link rel="stylesheet" href="css/style.min.css?_v=20260408200232" />
+  <link rel="stylesheet" href="css/style.min.css?_v=20260410172023" />
   <title>Студия Mar|Kis</title>
 </head>
 
@@ -72,7 +72,7 @@
           </div>
         </li>
 
-        <li class="menu-item">
+        <li class="menu-item" style="display: none;">
           <a href="/portfolio.html">Портфолио</a>
         </li>
 
@@ -86,10 +86,6 @@
 
         <li class="menu-item">
           <a href="/blog.html">Блог</a>
-        </li>
-
-        <li class="menu-item">
-          <a href="/#contact">Контакты</a>
         </li>
       </ul>
     </nav>
@@ -153,7 +149,7 @@
       </ul>
 
       <!-- КНОПКИ СВЯЗИ -->
-      <button class="header__btn open-modal btn" aria-controls="contact-modal" aria-expanded="false">Связаться</button>
+      <button class="header__btn btn" aria-controls="contact-modal" aria-expanded="false"><a href="#contact">Связаться</a></button>
       <div class="header__contact-links">
         <a href="tel:+380955221952" class="header__contact-link">
           <svg width="20" height="20" viewBox="0 0 24 24">
@@ -241,8 +237,8 @@
               </h2>
 
               <div class="hero__actions">
-                <a href="/#contact" class="btn btn--primary">Обсудить проект</a>
-                <a href="/portfolio.html" class="btn btn--outline">Посмотреть кейсы</a>
+                <button class="btn btn--primary open-modal" aria-controls="contact-modal" aria-expanded="false">Обсудить проект</button>
+                <a href="/portfolio.html" class="btn btn--outline" style="display: none;">Посмотреть кейсы</a>
               </div>
             </div>
           </section>
@@ -347,6 +343,104 @@
             </div>
           </section>
 
+          <!-- anchor process section -->
+          <div class="anchor" id="process">
+            <div class="anchor__container"></div>
+          </div>
+
+          <!-- process section -->
+          <section class="process">
+            <div class="process__container">
+              <h2 class="process__title h2">Етапи роботи над проєктом</h2>
+              <div class="process__items">
+                <div class="process__item">
+                  <div class="process__info">
+                    <div class="process__header">
+                      <span class="process__number">01</span>
+                      <h3 class="process__subtitle">Планування та стратегія</h3>
+                    </div>
+                    <p class="process__text">
+                      Обговорюємо ваші цілі, аналізуємо референси (приклади сайтів, які вам подобаються) та структуру конкурентів. На основі цього складаємо детальне ТЗ та UX-прототип.
+                    </p>
+                    <div class="process__result">
+                      <strong>Результат:</strong> Чіткий план розробки та UX-прототип (структура сторінок). <span style="font-weight: 600">Важливо:</span> якщо у вас вже є готовий макет у Figma або
+                      Zeplin, я проводжу його технічний аудит перед початком роботи.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="process__item">
+                  <div class="process__info">
+                    <div class="process__header">
+                      <span class="process__number">02</span>
+                      <h3 class="process__subtitle">Підготовка та оточення</h3>
+                    </div>
+                    <p class="process__text">
+                      Оптимізую графіку, шрифти та налаштовую професійне середовище розробки. Розгортаю проєкт на тестовому сервері, де ви зможете спостерігати за процесом створення сайту в реальному
+                      часі.
+                    </p>
+                    <div class="process__result"><strong>Результат:</strong> Підготовлена технічна база проєкту та доступ до посилання, за яким ви бачите етапи розробки.</div>
+                  </div>
+                </div>
+
+                <div class="process__item">
+                  <div class="process__info">
+                    <div class="process__header">
+                      <span class="process__number">03</span>
+                      <h3 class="process__subtitle">Верстка та програмування</h3>
+                    </div>
+                    <p class="process__text">
+                      Виконую адаптивну верстку всіх сторінок для ідеального вигляду на будь-яких пристроях. Налаштовую адмін-панель (CMS) та програмую функціонал: форми, Telegram API, інтеграції.
+                    </p>
+                    <div class="process__result">
+                      <strong>Результат:</strong>Робоча версія сайту з чистим кодом. <span style="font-weight: 600">Важливо:</span> на цьому етапі верстка робиться під ваш контент, щоб фінальний текст
+                      не "зламав" візуал.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="process__item">
+                  <div class="process__info">
+                    <div class="process__header">
+                      <span class="process__number">04</span>
+                      <h3 class="process__subtitle">Наповнення контентом</h3>
+                    </div>
+                    <p class="process__text">
+                      Розміщую ваші матеріали на сайті (тексти, зображення, товари або послуги). Структурую інформацію так, щоб вона була зручною для читання та коректно відображалася в дизайні.
+                    </p>
+                    <div class="process__result"><strong>Результат:</strong> Повністю заповнений сайт, готовий до використання та прийому відвідувачів.</div>
+                  </div>
+                </div>
+
+                <div class="process__item">
+                  <div class="process__info">
+                    <div class="process__header">
+                      <span class="process__number">05</span>
+                      <h3 class="process__subtitle">Технічне SEO та аналітика</h3>
+                    </div>
+                    <p class="process__text">
+                      Налаштовую мета-теги, Sitemap/Robots.txt та мікророзмітку Schema.org. Встановлюю Google Analytics 4 та додаю компанію на Google Maps для кращого локального пошуку.
+                    </p>
+                    <div class="process__result"><strong>Результат:</strong> Сайт має професійний вигляд у пошуковій видачі та готовий до аналізу трафіку.</div>
+                  </div>
+                </div>
+
+                <div class="process__item">
+                  <div class="process__info">
+                    <div class="process__header">
+                      <span class="process__number">06</span>
+                      <h3 class="process__subtitle">Тестування та запуск</h3>
+                    </div>
+                    <p class="process__text">
+                      Фінальний аудит швидкості PageSpeed (90+ балів). Перенесення на хостинг, підключення домену, запуск у Google Search Console та передача доступів з інструкціями.
+                    </p>
+                    <div class="process__result"><strong>Результат:</strong> Ви повноправний власник швидкого сайту, який вже працює на ваш бізнес.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
           <!-- anchor Price section -->
           <div class="anchor" id="price">
             <div class="anchor__container"></div>
@@ -358,8 +452,8 @@
               <h3 class="price__title h2">Стоимость услуг</h3>
               <div class="price__common">
                 <p>
-                  Кожен проєкт включає: <span>Адаптивність</span> (коректне відображення та зручна навігація на смартфонах, планшетах, десктопах), <span>12 місяців гарантії</span> на код, реєстрацію
-                  домену/хостингу на ваші дані та <span>100% передачу прав власності</span>.
+                  Кожен проєкт включає: <span>Адаптивність</span> (коректне відображення та зручна навігація на смартфонах, планшетах, десктопах), <span>12 місяців гарантії</span>,
+                  <span>1 місяць техпідтримки</span>, реєстрацію домену/хостингу на ваші дані та <span>100% передачу прав власності</span>.
                 </p>
               </div>
             </div>
@@ -439,6 +533,67 @@
                   <div class="price__item-btn">Написати в Telegram</div>
                 </div>
                 <div class="price__item-note">* База багатосторінкового сайту + налаштування кошика, товарної сітки та інтеграцій.</div>
+              </div>
+            </div>
+          </section>
+
+          <!-- anchor About section -->
+          <div class="anchor" id="about">
+            <div class="anchor__container"></div>
+          </div>
+
+          <!-- About section -->
+          <section class="about">
+            <div class="about__container">
+              <h2 class="about__title h2">Про мене</h2>
+              <div class="about__body">
+                <div class="about__intro-image image-grid">
+                  <div class="image-grid__item image-grid__item--1">
+                    <picture><source srcset="img/about-intro-one.webp" type="image/webp"><img src="img/about-intro-one.png" alt="Марина 1" /></picture>
+                  </div>
+                  <div class="image-grid__item image-grid__item--2">
+                    <picture><source srcset="img/about-intro-two.webp" type="image/webp"><img src="img/about-intro-two.png" alt="Марина 2" /></picture>
+                  </div>
+                  <div class="image-grid__item image-grid__item--3">
+                    <picture><source srcset="img/about-intro-three.webp" type="image/webp"><img src="img/about-intro-three.png" alt="Марина 3" /></picture>
+                  </div>
+                </div>
+
+                <div class="about__content">
+                  <h2 class="about__tittle h2">Реалізую вашу бізнес-ідею в цифровому просторі</h2>
+
+                  <div class="about__intro-text">
+                    <p>Вітаю! Мене звати <strong>Марина Кіслова</strong> і я буду створювати сайт для вас.</p>
+                  </div>
+
+                  <div class="about__description">
+                    <h3 class="about__subtitle">Про мене</h3>
+                    <p>
+                      Я щиро закоханий у свою справу веброзробник. Постійно вдосконалюю навички, щоб пропонувати вам найсучасніші рішення. Спеціалізуюся на чистій верстці (HTML5, SCSS, JS) та
+                      створенні надійних кастомних тем на WordPress. Мій пріоритет — це швидкість, стабільність та легкість вашого сайту.
+                    </p>
+
+                    <h3 class="about__subtitle">Що я можу запропонувати вам?</h3>
+                    <p>
+                      Створення сучасних та функціональних сайтів «не за всі гроші світу». Сьогодні будь-якому бізнесу важливо бути онлайн — це не просто мода, а необхідний фундамент для зростання
+                      продажів та довіри ваших клієнтів.
+                    </p>
+                    <p>
+                      Замовивши сайт у мене, ви отримаєте повністю готовий інструмент для розвитку власної справи. Якщо ви поки не розумієтесь на технічних нюансах — це зовсім не проблема. Я детально
+                      все поясню на консультації та підготую персональну відео-інструкцію, щоб керування сайтом було для вас простим і зрозумілим.
+                    </p>
+                  </div>
+
+                  <div class="about__signature signature">
+                    <div class="signature__avatar">
+                      <picture><source srcset="img/about-me-smallest.webp" type="image/webp"><img src="img/about-me-smallest.png" alt="Марина Кіслова" /></picture>
+                    </div>
+                    <div class="signature__info">
+                      <p class="signature__name">Марина Кіслова</p>
+                      <p class="signature__post">Розробник веб-сайтів</p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </section>
@@ -542,7 +697,7 @@
         </ul>
       </div>
       <div class="footer__column">
-        <p class="footer__title" id="contact">Контакты</p>
+        <p class="footer__subtitle" id="contact">Контакты</p>
         <p class="footer__has-dot">Пн-Вс с 10:00 до 19:00</p>
         <a href="tel:+380955221952" class="footer__link">+38 (095) 522 19 52</a>
         <p class="footer__has-dot">Задайте вопрос онлайн</p>
@@ -588,6 +743,12 @@
 
     </div>
 
-    <script src="js/app.min.js?_v=20260408200232"></script>
+    <button class="scroll-top" id="scrollTop" aria-label="Вгору">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <path d="M12 4l-8 8h5v8h6v-8h5z" fill="currentColor" />
+      </svg>
+    </button>
+
+    <script src="js/app.min.js?_v=20260410172023"></script>
   </body>
 </html>
