@@ -18,7 +18,7 @@
 @use "blocks/_faq.scss";
 @use "blocks/_services.scss";
 @use "blocks/_footer.scss";
-@use "blocks/_landingdevoptions.scss";
+@use "blocks/_landingdevop.scss";
 
 html {
   scroll-behavior: smooth;
@@ -76,7 +76,8 @@ html {
   }
 
   @media (max-width: 768px) {
-    justify-content: center;
+    // justify-content: center;
+    text-align: start;
     &::before {
       content: "";
       width: 0;
@@ -100,7 +101,7 @@ html {
 }
 
 .h2 {
-  @include mSt.adaptiv-value("font-size", 32, 25.6, 0);
+  @include mSt.adaptiv-value("font-size", 32, 22, 0);
   font-weight: 600;
   font-family: "Manrope";
 }

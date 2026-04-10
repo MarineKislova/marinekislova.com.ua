@@ -28,17 +28,37 @@
     }
   }
 
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 2; // Текст поверх паутины
+    @include mh.adaptiv-value("gap", 40, 20, 0);
+    height: max-content;
+  }
+
   &__tittle {
-    @include mh.adaptiv-value("font-size", 56, 28, 0);
-    font-weight: 800;
+    font-family: "Playfair Display", serif;
+    @include mh.adaptiv-value("font-size", 60, 30, 0);
+    font-weight: 500;
     line-height: 1.1;
-    max-width: 900px;
     margin: 0 auto;
     @include mh.adaptiv-value("padding-bottom", 25, 10, 0);
+
+    .highlight {
+      color: var(--colorPrimary); // Твой акцентный цвет
+    }
   }
 
   &__subtitle {
-    @include mh.adaptiv-value("font-size", 20, 16, 0);
+    font-family: "Manrope", sans-serif;
+    font-weight: 500;
+    line-height: 1.3;
+    @include mh.adaptiv-value("font-size", 28, 19.2, 0);
+    text-align: justify;
+    text-justify: auto;
     max-width: 700px;
     margin: 0 auto;
     @include mh.adaptiv-value("padding-bottom", 40, 20, 0);
@@ -46,36 +66,27 @@
   }
 }
 
-// Позиціонування
-.positioning {
-  @include mh.adaptiv-value("padding-top", 50, 25, 0);
-  @include mh.adaptiv-value("padding-bottom", 50, 25, 0);
+//About landing
+.about-land {
+  @include mh.adaptiv-value("padding", 50, 10, 0);
   background-color: #fdfdfd;
 
-  &__lead {
-    @include mh.adaptiv-value("font-size", 24, 18, 0);
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto;
-    @include mh.adaptiv-value("padding-bottom", 50, 25, 0);
-    font-weight: 500;
-    color: #1a1a1a;
-  }
+  &__container {
+    display: flex;
+    flex-direction: column;
+    @include mh.adaptiv-value("gap", 20, 10, 0);
+    @include mh.adaptiv-value("line-height", 24, 20, 0);
+    text-align: justify;
+    text-justify: auto;
 
-  &__grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-  }
-
-  &__item {
-    padding: 30px;
-    background: #fff;
-    border-left: 4px solid rgba(196, 12, 12, 0.5);
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-    h3 {
-      padding-bottom: 10px;
+    span {
       font-weight: 700;
+      color: #444;
+
+      &.open-modal {
+        cursor: pointer;
+        color: var(--colorSecondary) !important;
+      }
     }
   }
 }
@@ -84,48 +95,103 @@
 .tech-features {
   @include mh.adaptiv-value("padding-top", 50, 25, 0);
   @include mh.adaptiv-value("padding-bottom", 50, 25, 0);
+  &__container {
+  }
 
   &__title {
   }
 
-  &__body {
-    max-width: 800px;
-    margin: 0 auto;
+  &__subtitle {
+    @include mh.adaptiv-value("font-size", 24, 19.2, 0);
+    font-weight: 500;
+    @include mh.adaptiv-value("line-height", 24, 22, 0);
+    text-align: center;
+    vertical-align: baseline;
   }
 
-  &__list {
-    list-style: none;
-    padding: 0;
+  &__cards {
+    display: flex;
+    flex-wrap: wrap;
+    @include mh.adaptiv-value("gap", 30, 15, 0);
+    padding-top: 30px;
+  }
+
+  &__card {
     display: flex;
     flex-direction: column;
-    @include mh.adaptiv-value("gap", 20, 12, 0);
+    flex: 1 1 calc(33.333% - 20px); // Три в ряд на десктопі
+    min-width: 300px;
+    background: #fce6e4;
+    @include mh.adaptiv-value("padding", 40, 25, 0);
+    border-radius: 20px;
+    box-shadow: 0px 1px 3px rgba(60, 51, 51, 0.52);
 
+    @media (max-width: 992px) {
+      flex: 1 1 calc(50% - 15px); // Два в ряд на планшетах
+    }
+
+    @media (max-width: 650px) {
+      flex: 1 1 100%; // Один в ряд на мобільних
+    }
+  }
+
+  &__card-title {
+    font-size: 22px;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin-bottom: 10px;
+    position: relative;
+    padding-bottom: 15px;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background: var(--colorSecondary);
+      border-radius: 2px;
+    }
+  }
+
+  &__card-subtitle {
+    font-size: 15px;
+    font-style: italic;
+    color: #888;
+    padding-bottom: 25px;
+    line-height: 1.4;
+  }
+
+  &__card-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 10px;
     li {
       position: relative;
-      padding-left: 25px;
-      border-radius: 15px;
-      @include mh.adaptiv-value("font-size", 18, 16, 0);
-      @include mh.adaptiv-value("line-height", 24, 20, 0);
-      color: #444;
+      padding-left: 18px;
+      line-height: 1.4;
 
-      // Стильна іконка чек-боксу
-      &::before {
-        content: "✓";
-        position: absolute;
-        left: 0;
-        color: #0dc437;
-        font-weight: bold;
+      span {
+        color: #312d2d;
+        font-weight: 600;
       }
 
-      strong {
-        display: block;
-        color: #1a1a1a;
-        font-weight: 700;
-        padding-bottom: 5px;
-        @include mh.adaptiv-value("font-size", 20, 18, 0);
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 8px;
+        width: 6px;
+        height: 6px;
+        background: var(--colorPrimary);
+        border-radius: 50%;
       }
     }
   }
+}
+.h2 {
 }
 
 // Етапи (Steps)
@@ -133,6 +199,15 @@
   @include mh.adaptiv-value("padding-top", 50, 25, 0);
   @include mh.adaptiv-value("padding-bottom", 50, 25, 0);
   background-color: #fdfdfd;
+
+  &__title {
+    display: flex;
+    align-items: center;
+
+    &:hover {
+      color: rgba(163, 3, 3, 0.8);
+    }
+  }
   &__grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
