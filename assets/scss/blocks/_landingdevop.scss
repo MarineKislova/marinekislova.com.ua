@@ -89,12 +89,143 @@
       }
     }
   }
+
+  &__desc {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+
+    @media (max-width: 1280px) {
+      display: flow-root;
+    }
+
+    @media (max-width: 460px) {
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: center;
+    }
+  }
+
+  &__img {
+    @include mh.adaptiv-value("width", 250, 900, 0);
+    @include mh.adaptiv-value("padding-right", 20, 10, 0);
+    @include mh.adaptiv-value("padding-bottom", 30, 15, 0);
+
+    @media (max-width: 1280px) {
+      float: left;
+      width: 15%;
+    }
+
+    @media (max-width: 600px) {
+      width: 45%;
+    }
+
+    @media (max-width: 768px) {
+      width: 25%;
+    }
+
+    @media (min-width: 2100px) {
+      width: 300px;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 12px;
+      box-shadow: 0 3px 5px rgba(8, 8, 8, 0.8);
+
+      @media (max-width: 1536px) {
+        aspect-ratio: 3/4;
+      }
+
+      @media (max-width: 1280px) {
+        aspect-ratio: auto;
+      }
+    }
+  }
+
+  &__img-one {
+    @media (max-width: 460px) {
+      display: none !important;
+    }
+  }
+  &__img-two {
+    display: none !important;
+    @media (max-width: 460px) {
+      display: flex !important;
+      width: 150% !important;
+      aspect-ratio: auto !important;
+      margin: 0 auto;
+    }
+  }
+
+  &__text {
+    // align-self: center;
+    p {
+      text-indent: 2%;
+    }
+  }
+}
+
+// Етапи (Steps)
+.steps {
+  @include mh.adaptiv-value("padding-top", 50, 25, 0);
+  @include mh.adaptiv-value("padding-bottom", 50, 25, 0);
+
+  &__title {
+    display: flex;
+    align-items: center;
+
+    &:hover {
+      color: rgba(163, 3, 3, 0.8);
+    }
+  }
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    @include mh.adaptiv-value("gap", 20, 12, 0);
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr 1fr;
+    }
+    @media (max-width: 480px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__item {
+    font-weight: 800;
+    @include mh.adaptiv-value("padding", 30, 15, 0);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    span {
+      color: rgba(195, 17, 12, 0.4); // Полупрозрачная цифра
+      font-weight: 800;
+      @include mh.adaptiv-value("font-size", 24, 18, 0);
+    }
+
+    &:nth-child(2n - 1) {
+      background-color: #f9e8e6;
+      box-shadow: 0 2px 5px rgba(128, 124, 124, 0.5);
+    }
+
+    &:nth-child(2n - 2) {
+      background-color: #dadada;
+      box-shadow: 0 2px 5px rgba(209, 175, 175, 0.5);
+    }
+  }
 }
 
 // Технічні особливості (Hard Skills блок)
 .tech-features {
   @include mh.adaptiv-value("padding-top", 50, 25, 0);
   @include mh.adaptiv-value("padding-bottom", 50, 25, 0);
+
   &__container {
   }
 
@@ -194,54 +325,83 @@
 .h2 {
 }
 
-// Етапи (Steps)
-.steps {
+//Преимущества
+.expert-intro-landing {
   @include mh.adaptiv-value("padding-top", 50, 25, 0);
   @include mh.adaptiv-value("padding-bottom", 50, 25, 0);
-  background-color: #fdfdfd;
+
+  &__container {
+    // Стандартный контейнер вашего проекта
+  }
 
   &__title {
-    display: flex;
-    align-items: center;
-
-    &:hover {
-      color: rgba(163, 3, 3, 0.8);
-    }
-  }
-  &__grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    @include mh.adaptiv-value("gap", 20, 12, 0);
-    @media (max-width: 768px) {
-      grid-template-columns: 1fr 1fr;
-    }
-    @media (max-width: 480px) {
-      grid-template-columns: 1fr;
-    }
+    text-transform: uppercase;
   }
 
-  &__item {
-    font-weight: 800;
-    @include mh.adaptiv-value("padding", 30, 15, 0);
-    border-radius: 12px;
+  // Сетка для карточек
+  &__sections {
     display: flex;
-    align-items: center;
-    gap: 15px;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__section {
+    background: #ffe6e3;
+    @include mh.adaptiv-value("padding", 40, 20, 0);
+    border-radius: 7px; // Минималистичный радиус
+    box-shadow: 0 3px 7px rgba(96, 93, 93, 0.5); // Очень мягкая тень
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ffe0dd;
 
     span {
-      color: rgba(195, 17, 12, 0.4); // Полупрозрачная цифра
-      font-weight: 800;
-      @include mh.adaptiv-value("font-size", 24, 18, 0);
+      font-weight: 700;
+      color: #444;
     }
 
-    &:nth-child(2n - 1) {
-      background-color: #f9e8e6;
-      box-shadow: 0 2px 5px rgba(128, 124, 124, 0.5);
+    
+    .contact-landing {
+      cursor: pointer;
+      color: #c3110c !important;
+      font-weight: 600;
     }
 
-    &:nth-child(2n - 2) {
-      background-color: #dadada;
-      box-shadow: 0 2px 5px rgba(209, 175, 175, 0.5);
+    // Заголовки внутри карточек (h3)
+    h3 {
+      font-size: 22px;
+      font-weight: 700;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+      text-transform: uppercase;
+      line-height: 1.2;
+      text-align: center;
+    }
+
+    // Текст внутри карточек
+    p {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: #444;
+      padding-top: 20px;
+      text-align: justify;
+      text-justify: auto;
+    }
+  }
+}
+
+// Адаптив для мобильных устройств
+@media (max-width: 768px) {
+  .expert-intro-landing {
+    &__grid {
+      grid-template-columns: 1fr; // В одну колонку на мобилках
+    }
+
+    &__section {
+      padding: 25px;
+
+      h3 {
+        font-size: 1.3rem;
+      }
     }
   }
 }
