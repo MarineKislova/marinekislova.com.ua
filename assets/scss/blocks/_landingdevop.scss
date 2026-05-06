@@ -3,7 +3,6 @@
 // Hero-блок
 .hero-l {
   @include mh.adaptiv-value("padding", 50, 10, 0);
-  // background: linear-gradient(135deg, #f8f9fa 0%, #eef6ff 100%);
   text-align: center;
   // Псевдоэлемент для паутины
   &::before {
@@ -233,10 +232,14 @@
   }
 
   &__subtitle {
-    @include mh.adaptiv-value("font-size", 24, 19.2, 0);
+    @include mh.adaptiv-value("font-size", 22, 17.6, 0);
     font-weight: 500;
-    @include mh.adaptiv-value("line-height", 24, 22, 0);
-    text-align: center;
+    @include mh.adaptiv-value("line-height", 32, 22, 0);
+    text-align: justify;
+    text-justify: auto;
+    @include mh.adaptiv-value("max-width", 800, 300, 0);
+    text-indent: 5%;
+    margin: 0 auto;
     vertical-align: baseline;
   }
 
@@ -359,7 +362,6 @@
       color: #444;
     }
 
-    
     .contact-landing {
       cursor: pointer;
       color: #c3110c !important;
