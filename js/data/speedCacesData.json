@@ -26,13 +26,13 @@
   {
     "_instruction": "output: true - показывать, false - скрыть",
     "id": 3,
-    "titleRU": "",
-    "titleUA": "",
-    "titleEN": "",
-    "link": "",
-    "img": "",
-    "alt": "",
-    "output": false,
+    "titleRU": "Конверсионный лендинг для автосервиса с интеграцией Telegram API",
+    "titleUA": "Конверсійний лендинг автосервісу з інтеграцією Telegram API",
+    "titleEN": "A conversion landing page for a car service with Telegram API integration",
+    "link": "https://pitstopservice.markis-studio.com/",
+    "img": "img/speedcases/pitstopservice-removebg-preview-th.png",
+    "alt": "pitstopservice",
+    "output": true,
     "filter": ""
   },
   {
